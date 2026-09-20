@@ -4,24 +4,17 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 // use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function userhome(){
-        return view('user.userhome');
+        $user= User::get();
+        return view('user.userhome',compact('user'));
     }
     public function profile()
     {
         return view('user.profile');
     }
 
-    public function books()
-    {
-        return view('user.books');
-    }
-
-    public function addbook()
-    {
-        return view('user.addbook');
-    }
 }

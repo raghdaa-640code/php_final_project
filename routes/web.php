@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeController::class);
@@ -9,11 +10,22 @@ Route::get('/',HomeController::class);
 Route::prefix('/user')->name('user.')->group(function(){
     Route::controller(UserController::class)->group(function(){
         Route::get('/userhome','userhome')->name('userhome');
-        Route::get('/profile','profile')->name('profile');
-        Route::get('/books','books')->name('books');
-        Route::get('/addbook','addbook')->name('addbook');
+        Route::get('/{id}/profile','profile')->name('profile')->where(['id'=>'[0-9]+']);;
+        
     });
+
+    Route::controller(BookController::class)->group(function(){
+        Route::get('/book/show','showbooks')->name('showbooks');
+        Route::get('/addbook','addbook')->name('addbook');
+        Route::post('book/storebook','storebook')->name('storebook');
+        Route::get('/book/{id}/edit','editbook')->name('editbook')->where(['id'=>'[0-9]+']);;
+        Route::get('/book/{id}/delete','deletebook')->name('deletebook')->where(['id'=>'[0-9]+']);;
+        Route::get('/book/{id}/buy','buy')->name('buy')->where(['id'=>'[0-9]+']);;
+        Route::put('/book/{id}','updatebook')->name('updatebook')->where(['id'=>'[0-9]+']);
+    });
+
 });
+
 
 
 
