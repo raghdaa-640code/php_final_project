@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('image')->nullable();
             $table->string('type');
-            $table->enum('state',['active','hold'])->default('active');
-            $table->enum('status',['used','new'])->default('new');
+            $table->enum('state',['متاح','غير متاح'])->default('متاح');
+            $table->enum('status',['مستعمل','جديد'])->default('مستعمل');
             $table->unsignedBigInteger('user_id'); 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
