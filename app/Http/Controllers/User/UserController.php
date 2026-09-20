@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    public function userhome(){
+        return view('user.userhome');
+    }
     public function profile()
     {
         return view('user.profile');
