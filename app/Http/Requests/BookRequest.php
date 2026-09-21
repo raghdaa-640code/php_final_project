@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
+// use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BookRequest extends FormRequest
@@ -12,7 +12,7 @@ class BookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,9 +21,15 @@ class BookRequest extends FormRequest
      * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
+    {   $id=$this->route('id');
         return [
-            //
+            'title'=>['required','regex:/^[\p{Arabic}a-zA-Z0-9\s]+{3,50}$/u'],
+            'image'=>['required','image','mimes:png,jpg.jpeg'],
+            'type'=>['nullable','regex:/^[\p{Arabic}0-9\s]+{3,20}$/u']
         ];
     }
-}
+    public function mesaages(){
+        return [
+        'title.required'=> 'يجب إدخال الاسم', ];}
+
+}   

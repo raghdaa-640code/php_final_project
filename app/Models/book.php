@@ -13,4 +13,9 @@ class book extends Model
         'state',
         'status'
     ];
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }

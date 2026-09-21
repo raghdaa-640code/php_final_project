@@ -8,8 +8,8 @@ use App\Models\Book;
 class BookController 
 {
     public function showbooks(){
-        $book=Book::post();    
-        return view('user.book.show',compact('book'));
+        $books=Book::with('user')->get();    
+        return view('user.book.show',compact('books'));
     }
 
     public function addbook()
@@ -18,6 +18,10 @@ class BookController
     }
 
     public function storebook(BookRequest $request){
+        // $phname=$request->file('image')->getClientOriginalName();
+        $phextension=$request->file('photo')->getClientOriginalExtension();
+        $email=$request->email;
+        $request->file('image')->storeAs('images',$email.".".  $phextension);
         $bookdata= $request->validated();
         Book::create($bookdata);
         return redirect()->back()->with('message','book added');
