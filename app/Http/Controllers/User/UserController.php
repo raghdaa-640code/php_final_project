@@ -12,8 +12,8 @@ class UserController extends Controller
         $user= User::get();
         return view('user.userhome',compact('user'));
     }
-    public function profile()
-    {
+    public function profile($id)
+    {    $id= User::findorfail($id);
         return view('user.profile');
     }
 

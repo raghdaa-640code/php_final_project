@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
 
-class BookController extends Controller
+class BookController 
 {
-    public function showbooks($id){
-        $book=Book::findorfail($id);
+    public function showbooks(){
+        $book=Book::post();    
         return view('user.book.show',compact('book'));
     }
 
@@ -35,13 +35,14 @@ class BookController extends Controller
     {
         $book= Book::findorfail($id);
         $book-> delete();
-        return redirect()->back()->with('message','student deleted successfly');
+        return redirect()->back()->with('message','book deleted successfully');
     
     }
 
-    public function buy()
-    {
-        return view('user.book.');
+    public function accept($id){
+        $book= Book::findorfail($id);
+        $book->update(['status' => 'غير متاح']); 
+        return redirect()->back();
     }
     
 }
