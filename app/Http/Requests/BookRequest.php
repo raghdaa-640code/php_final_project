@@ -23,12 +23,12 @@ class BookRequest extends FormRequest
     public function rules(): array
     {   $id=$this->route('id');
         return [
-            'title'=>['required','regex:/^[\p{Arabic}a-zA-Z0-9\s]+{3,50}$/u'],
-            'image'=>['required','image','mimes:png,jpg.jpeg'],
-            'type'=>['nullable','regex:/^[\p{Arabic}0-9\s]+{3,20}$/u']
+            'title'=>['required','regex:/^[\p{Arabic}a-zA-Z0-9\s]{3,50}$/u'],
+            'image'=>['required','image','mimes:png,jpg,jpeg'],
+            'type'=>['nullable','regex:/^[\p{Arabic}0-9\s]{3,20}$/u']
         ];
     }
-    public function mesaages(){
+    public function messages(){
         return [
         'title.required'=> 'يجب إدخال الاسم', ];}
 

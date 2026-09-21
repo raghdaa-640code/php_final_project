@@ -16,7 +16,7 @@ Route::prefix('/user')->name('user.')->group(function(){
 
     Route::controller(BookController::class)->group(function(){
         Route::get('/book/show','showbooks')->name('showbooks');
-        Route::get('/addbook','addbook')->name('addbook');
+        Route::get('book/addbook','addbook')->name('addbook');
         Route::post('book/storebook','storebook')->name('storebook');
         Route::get('/book/{id}/edit','editbook')->name('editbook')->where(['id'=>'[0-9]+']);
         Route::delete('/book/{id}/delete','deletebook')->name('deletebook')->where(['id'=>'[0-9]+']);

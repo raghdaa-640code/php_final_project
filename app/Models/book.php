@@ -11,7 +11,8 @@ class book extends Model
         'image',
         'type',
         'state',
-        'status'
+        'status',
+        'user_id'
     ];
 
     public function user()
