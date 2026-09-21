@@ -105,8 +105,7 @@
 
                 <div>
                     <span>إجمالي المستخدمين</span>
-                    <h2>124</h2>
-                    <small class="increase">↑ 12%</small>
+                    <h2>{{$usersCount}}</h2>
                 </div>
 
             </div>
@@ -120,12 +119,24 @@
 
                 <div>
                     <span>إجمالي الكتب</span>
-                    <h2>318</h2>
-                    <small class="increase">↑ 8%</small>
+                    <h2>{{$booksCount}}</h2>
                 </div>
 
             </div>
-
+            
+            
+            <div class="stat-card">
+                
+                <div class="stat-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                
+                <div>
+                    <span>الكتب المتاحة</span>
+                    <h2>{{$availableBooks}}</h2>
+                </div>
+                
+            </div>
 
             <div class="stat-card">
 
@@ -134,24 +145,8 @@
                 </div>
 
                 <div>
-                    <span>طلبات التبادل</span>
-                    <h2>76</h2>
-                    <small class="increase">↑ 15%</small>
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-                <div>
-                    <span>الكتب المتاحة</span>
-                    <h2>246</h2>
-                    <small class="increase">↑ 10%</small>
+                    <span>الكتب الغير متاحة</span>
+                    <h2>{{$unavailableBooks}}</h2>
                 </div>
 
             </div>
@@ -259,6 +254,7 @@
                                     <th>العنوان</th>
                                     <th>المالك</th>
                                     <th>التصنيف</th>
+                                    <th>حالة الكتاب</th>
                                     <th>الحالة</th>
                                     <th>الإجراءات</th>
                                 </tr>
@@ -267,114 +263,44 @@
 
 
                             <tbody>
-
+                                @foreach ($books as $book)
+                                    
                                 <tr>
-                                    <td>Atomic Habits</td>
-                                    <td>سارة أحمد</td>
-                                    <td>تطوير الذات</td>
-
+                                    <td>{{$book['title']}}</td>
+                                    <td>{{$book->user->name}}</td>
+                                    <td>{{$book['type']}}</td>
+                                    <td>{{$book['status']}}</td>
+                                    
                                     <td>
+                                        @if ($book['state']=='متاح')
+                                            
                                         <span class="status active-status">
                                             متاح
                                         </span>
-                                    </td>
-
-                                    <td>
-
-                                        <button class="edit-btn"
-                                            onclick="editBook('Atomic Habits')">
-                                            تعديل
-                                        </button>
-
-                                        <button class="delete-btn"
-                                            onclick="deleteBook(this)">
-                                            حذف
-                                        </button>
-
-                                    </td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>1984</td>
-                                    <td>محمد علي</td>
-                                    <td>روايات</td>
-
-                                    <td>
-                                        <span class="status active-status">
-                                            متاح
-                                        </span>
-                                    </td>
-
-                                    <td>
-
-                                        <button class="edit-btn"
-                                            onclick="editBook('1984')">
-                                            تعديل
-                                        </button>
-
-                                        <button class="delete-btn"
-                                            onclick="deleteBook(this)">
-                                            حذف
-                                        </button>
-
-                                    </td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>Clean Code</td>
-                                    <td>نورهان مصطفى</td>
-                                    <td>برمجة</td>
-
-                                    <td>
-                                        <span class="status active-status">
-                                            متاح
-                                        </span>
-                                    </td>
-
-                                    <td>
-
-                                        <button class="edit-btn"
-                                            onclick="editBook('Clean Code')">
-                                            تعديل
-                                        </button>
-
-                                        <button class="delete-btn"
-                                            onclick="deleteBook(this)">
-                                            حذف
-                                        </button>
-
-                                    </td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>The Martian</td>
-                                    <td>علي حسن</td>
-                                    <td>خيال علمي</td>
-
-                                    <td>
+                                        @else
                                         <span class="status pending-status">
-                                            قيد التبادل
+                                            غير متاح
                                         </span>
+                                        
+                                        @endif
+                                       
                                     </td>
-
+                                    
                                     <td>
-
+                                        
                                         <button class="edit-btn"
-                                            onclick="editBook('The Martian')">
-                                            تعديل
-                                        </button>
-
-                                        <button class="delete-btn"
-                                            onclick="deleteBook(this)">
-                                            حذف
-                                        </button>
-
-                                    </td>
-                                </tr>
-
+                                        onclick="editBook('Atomic Habits')">
+                                        تعديل
+                                    </button>
+                                    
+                                    <button class="delete-btn"
+                                    onclick="deleteBook(this)">
+                                    حذف
+                                </button>
+                                
+                            </td>
+                        </tr>
+                        @endforeach
                             </tbody>
 
                         </table>

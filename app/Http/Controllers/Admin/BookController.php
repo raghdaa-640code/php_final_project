@@ -7,10 +7,27 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Book;
 
+class BookController extends Controller{    
 
-// public function index()
-// {
-//     $books = Book::with('user')->get();
+    public function index()
+    {
+        $books = Book::with('user')->get();
+        $users=User::get();
+        $usersCount = User::count();
+        $booksCount = Book::count();
 
-//     return view('admin.books.index', compact('books'));
-// }
+        $availableBooks = Book::where('state', 'متاح')->count();
+
+        $unavailableBooks = Book::where('state', 'غير متاح')->count();
+
+        return view('admin.users.admin_dasboard.app', compact('books','users',
+            'usersCount',
+            'booksCount',
+            'availableBooks',
+            'unavailableBooks'
+        ));
+    }
+
+    
+
+}

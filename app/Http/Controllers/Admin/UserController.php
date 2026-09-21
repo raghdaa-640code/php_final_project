@@ -10,12 +10,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index(){
-
-        $users=User::get();
-        return view('admin.users.admin_dasboard.app',compact('users'));
-    }
-    
+   
     // public function show($id){
     //     $student=Student::findorfail($id);
     //     return view('admin.students.show',compact('student'));

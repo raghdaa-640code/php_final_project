@@ -20,7 +20,6 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
     Route::controller(UserController::class)->group(function(){
 
-        Route::get('/dashboard','index')->name('dashboard');
         // Route::get('/students','index')->name('students.index');
         // Route::get('/students/create','create')->name('students.create');
         // Route::get('/students/{id}','show')->name('students.show')->where(['id'=>'[0-9]+']);
@@ -32,6 +31,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
         });
         
         Route::controller(BookController::class)->group(function(){
+            Route::get('/dashboard','index')->name('dashboard');
+
             
             // Route::get('/departments', 'index')->name('departments.index');
             // Route::get('/departments/create', 'create')->name('departments.create');
