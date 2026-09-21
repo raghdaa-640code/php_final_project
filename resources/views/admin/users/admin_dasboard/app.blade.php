@@ -212,17 +212,19 @@
                                     <td>{{$user['location']}}</td>
                                     
                                     <td>
-                                        <button class="edit-btn"
-                                        onclick="editUser('سارة أحمد')">
+                                        <button class="edit-btn">
                                         <i class="fa-solid fa-pen"></i>
                                         تعديل
                                     </button>
-                                    
-                                    <button class="delete-btn"
-                                    onclick="deleteUser(this)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    حذف
-                                </button>
+
+                                    <form action="{{route('admin.users.destroy',$user['id'])}}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('delete')
+                                        <button class="delete-btn">
+                                        <i class="fa-solid fa-trash"></i>
+                                        حذف
+                                        </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
@@ -300,11 +302,14 @@
                                         تعديل
                                     </button>
                                     
-                                    <button class="delete-btn"
-                                    onclick="deleteBook(this)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    حذف
-                                </button>
+                                    <form action="{{route('admin.books.destroy',$book['id'])}}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('delete')
+                                        <button class="delete-btn">
+                                        <i class="fa-solid fa-trash"></i>
+                                        حذف
+                                        </button>
+                                </form>
                                 
                             </td>
                         </tr>

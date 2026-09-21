@@ -28,6 +28,10 @@ class BookController extends Controller{
         ));
     }
 
-    
+    public function destroy($id){
+        $book=Book::findorfail($id);
+        $book->delete();
+        return redirect()->back()->with('msg','deleted successfully');
+    }
 
 }

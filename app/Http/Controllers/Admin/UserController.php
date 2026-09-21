@@ -10,11 +10,6 @@ use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
-   
-    // public function show($id){
-    //     $student=Student::findorfail($id);
-    //     return view('admin.students.show',compact('student'));
-    // }
 
     public function create(){
         return view('admin.users.admin_dasboard.create');
@@ -35,11 +30,11 @@ class UserController extends Controller
     //     return view('admin.students.edit',compact('departments','student'));
     // }
 
-    // public function destroy($id){
-    //     $student=Student::findorfail($id);
-    //     $student->delete();
-    //     return redirect()->back()->with('msg','deleted successfully');
-    // }
+    public function destroy($id){
+        $user=User::findorfail($id);
+        $user->delete();
+        return redirect()->back()->with('msg','deleted successfully');
+    }
 
     // public function update(StudentRequest $request , $id){
     //     $data=$request->validated();
