@@ -51,6 +51,14 @@
             </a>
 
             <a href="#">
+                <i class="fa-solid fa-comments"></i>
+                الاراء
+            </a>
+            <a href="#">
+                <i class="fa-solid fa-flag"></i>
+                البلاغات
+            </a>
+            <a href="#">
                 <i class="fa-solid fa-gear"></i>
                 الإعدادات
             </a>
@@ -170,10 +178,10 @@
                             إدارة المستخدمين
                         </h2>
 
-                        <button class="add-btn" onclick="addUser()">
+                        <a href="{{route('admin.users.create')}}" class="add-btn">
                             <i class="fa-solid fa-plus"></i>
                             إضافة مستخدم
-                        </button>
+                        </a>
 
                     </div>
 
@@ -186,7 +194,8 @@
                                 <tr>
                                     <th>الاسم</th>
                                     <th>البريد الإلكتروني</th>
-                                    <th>الصورة</th>
+                                    <th>الهاتف</th>
+                                    <th>المكان</th>
                                     <th>الإجراءات</th>
                                 </tr>
                             </thead>
@@ -198,8 +207,9 @@
                                     <td>{{$user['name']}}</td>
                                     <td>{{$user['email']}}</td>
                                     <td>
-                                        {{$user['image']}}
+                                        {{$user['phone']}}
                                     </td>
+                                    <td>{{$user['location']}}</td>
                                     
                                     <td>
                                         <button class="edit-btn"
@@ -236,10 +246,6 @@
                             إدارة الكتب
                         </h2>
 
-                        <button class="add-btn" onclick="addBook()">
-                            <i class="fa-solid fa-plus"></i>
-                            إضافة كتاب
-                        </button>
 
                     </div>
 
@@ -290,11 +296,13 @@
                                         
                                         <button class="edit-btn"
                                         onclick="editBook('Atomic Habits')">
+                                        <i class="fa-solid fa-pen"></i>
                                         تعديل
                                     </button>
                                     
                                     <button class="delete-btn"
                                     onclick="deleteBook(this)">
+                                    <i class="fa-solid fa-trash"></i>
                                     حذف
                                 </button>
                                 
@@ -311,72 +319,6 @@
 
             </div>
 
-
-            <!-- Activities -->
-            <div class="activities">
-
-                <div class="panel">
-
-                    <div class="panel-header">
-                        <h2>
-                            <i class="fa-regular fa-clock"></i>
-                            أحدث الأنشطة
-                        </h2>
-                    </div>
-
-
-                    <div class="activity">
-
-                        <i class="fa-solid fa-right-left"></i>
-
-                        <div>
-                            <strong>طلب تبادل كتاب</strong>
-                            <p>تم طلب كتاب 1984</p>
-                            <small>منذ 10 دقائق</small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="activity">
-
-                        <i class="fa-solid fa-book"></i>
-
-                        <div>
-                            <strong>إضافة كتاب جديد</strong>
-                            <p>تمت إضافة Atomic Habits</p>
-                            <small>منذ 25 دقيقة</small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="activity">
-
-                        <i class="fa-solid fa-user"></i>
-
-                        <div>
-                            <strong>مستخدم جديد</strong>
-                            <p>تم تسجيل مستخدم جديد</p>
-                            <small>منذ ساعة</small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="activity">
-
-                        <i class="fa-solid fa-right-left"></i>
-
-                        <div>
-                            <strong>قبول طلب تبادل</strong>
-                            <p>تم قبول طلب تبادل كتاب</p>
-                            <small>منذ ساعتين</small>
-                        </div>
-
-                    </div>
-
-                </div>
 
             </div>
 

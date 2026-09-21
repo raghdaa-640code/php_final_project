@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Book;
 
-#[Fillable(['name', 'email', 'password','phone','image','role'])]
+#[Fillable(['name', 'email', 'password','phone','image','role','location'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {

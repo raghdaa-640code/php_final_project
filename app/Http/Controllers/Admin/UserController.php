@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 // use App\Models\Department;
-// use App\Http\Requests\StudentRequest;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -16,19 +16,18 @@ class UserController extends Controller
     //     return view('admin.students.show',compact('student'));
     // }
 
-    // public function create(){
-    //     $departments=Department::get();
-    //     return view('admin.students.create',compact('departments'));
-    // }
+    public function create(){
+        return view('admin.users.admin_dasboard.create');
+    }
 
-    // function store(StudentRequest $request){
+    function store(UserRequest $request){
        
-    //     $data = $request->validated();
+        $data = $request->validated();
 
-    //     Student::create($data);
+        User::create($data);
 
-    //     return redirect()->back()->with('message','student added successfully');
-    // }
+        return redirect()->back()->with('message','user added successfully');
+    }
 
     // public function edit($id){
     //     $departments=Department::get();
