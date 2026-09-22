@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Swopply | Admin Dashboard</title>
+    <title>رحلة كتاب|لوحة التحكم</title>
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -19,8 +19,7 @@
     <aside class="sidebar">
 
         <div class="logo">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Swopply</span>
+            <img src="{{asset('dashboard/assets/dashboard/final.png')}}" alt="رحلة كتاب">
         </div>
 
         <nav>
@@ -28,6 +27,11 @@
             <a href="#" class="active">
                 <i class="fa-solid fa-house"></i>
                 لوحة التحكم
+            </a>
+
+            <a href="#" class="active">
+                <i class="fa-solid fa-house"></i>
+                الصفحة الرئيسية
             </a>
 
             <a href="#users">
@@ -88,7 +92,6 @@
 
                 <div class="admin-info">
                     <strong>مرحبًا، المدير</strong>
-                    <small>admin@swopply.com</small>
                 </div>
 
                 <div class="avatar">
