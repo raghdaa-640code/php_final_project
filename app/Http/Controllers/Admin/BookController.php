@@ -35,16 +35,16 @@ class BookController extends Controller{
         return redirect()->back()->with('msg','deleted successfully');
     }
 
-    public function edit($id){
-        $book=Book::findorfail($id);
-        return view('admin.users.admin_dasboard.Bedit',compact('book'));
-    }
+    // public function edit($id){
+    //     $book=Book::findorfail($id);
+    //     return view('admin.users.admin_dasboard.Bedit',compact('book'));
+    // }
 
-    public function update(BookRequest $request , $id){
-        $data=$request->validated();
-        $book=Book::findorfail($id);
-        $book->update($data);
-        return redirect()->back()->with('message','updated successfully');
-    }
+    // public function update(BookRequest $request , $id){
+    //     $data=$request->validated();
+    //     $book=Book::findorfail($id);
+    //     $book->update($data);
+    //     return redirect()->back()->with('message','updated successfully');
+    // }
 
 }

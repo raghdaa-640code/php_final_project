@@ -34,12 +34,9 @@ Route::prefix('/admin')->name('admin.')->group(function(){
         Route::controller(BookController::class)->group(function(){
             Route::get('/dashboard','index')->name('dashboard');
             Route::delete('/books/{id}',"destroy")->name('books.destroy')->where(['id'=>'[0-9]+']);
-            Route::get('/books/{id}/edit',"edit")->name('books.edit')->where(['id'=>'[0-9]+']);
-            Route::put('/books/{id}','update')->name('books.update')->where(['id'=>'[0-9]+']);
+            // Route::get('/books/{id}/edit',"edit")->name('books.edit')->where(['id'=>'[0-9]+']);
+            // Route::put('/books/{id}','update')->name('books.update')->where(['id'=>'[0-9]+']);
 
-            
-            // Route::get('/departments', 'index')->name('departments.index');
-            // Route::get('/departments/{id}','show')->name('departments.show')->where(['id'=>'[0-9]+']);
     
     });
 

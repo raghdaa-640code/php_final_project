@@ -295,11 +295,6 @@
                                     </td>
                                     
                                     <td>
-                                        
-                                        <a href="{{route('admin.books.edit',$book['id'])}}" class="edit-btn">
-                                        <i class="fa-solid fa-pen"></i>
-                                        تعديل
-                                        </a>
                                     
                                     <form action="{{route('admin.books.destroy',$book['id'])}}" method="POST" style="display:inline;">
                                     @csrf
