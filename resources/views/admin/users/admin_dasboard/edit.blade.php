@@ -78,27 +78,28 @@
 
     <div class="form-container">
 
-        <h2>إضافة مستخدم</h2>
+        <h2>تعديل بيانات المستخدم</h2>
 
-        <form action="{{route('admin.users.store')}}" method="POST">
+        <form action="{{route('admin.users.update',$user->id)}}" method="POST">
             @csrf
+            @method('put')
 
-            <label for="name">الإسم</label>
-            <input type="text" id="name" name="name" value="{{ old('name') }}">
+            <label for="name">الاسم</label>
+            <input type="text" id="name" name="name" value="{{$user['name']}}">
 
             <label for="email">البريد الالكتروني</label>
-            <input type="email" id="email" name="email" value="{{ old('email') }}">
+            <input type="email" id="email" name="email" value="{{$user['email']}}">
 
             <label for="password">كلمة السر</label>
-            <input type="password" id="password" name="password" value="{{ old('password') }}">
+            <input type="password" id="password" name="password" value="{{$user['password']}}">
 
             <label for="phone">الهاتف</label>
-            <input type="text" id="phone" name="phone" value="{{ old('phone') }}">
+            <input type="text" id="phone" name="phone" value="{{$user['phone']}}">
 
             <label for="location">المكان</label>
-            <input type="text" id="location" name="location" value="{{ old('location') }}">
+            <input type="text" id="location" name="location" value="{{$user['location']}}">
 
-            <button type="submit">إضافة</button>
+            <button type="submit">تعديل</button>
 
         </form>
 

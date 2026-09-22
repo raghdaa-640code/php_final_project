@@ -5,14 +5,14 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class BookRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,13 +22,11 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id=$this->route('id');
         return [
-            'name'=>['required'],
-            'email'=>['required','email','regex:/^[a-zA-Z0-9]+@[a-zA-Z]+\.(com|eg|edu)$/','unique:users,email,'.$id],
-            'phone'=>['nullable','regex:/^(010|012|011|015)[0-9]{8}$/','unique:users,phone,'.$id],
-            'password'=>['required'],
-            'location'=>['nullable']
+            'title'=>['required'],
+            'type'=>['required'],
+            'state'=>['required'],
+            'status'=>['required']
         ];
     }
 }

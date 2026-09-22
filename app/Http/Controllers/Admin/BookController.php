@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Book;
+use App\Http\Requests\BookRequest;
 
 class BookController extends Controller{    
 
@@ -32,6 +33,18 @@ class BookController extends Controller{
         $book=Book::findorfail($id);
         $book->delete();
         return redirect()->back()->with('msg','deleted successfully');
+    }
+
+    public function edit($id){
+        $book=Book::findorfail($id);
+        return view('admin.users.admin_dasboard.Bedit',compact('book'));
+    }
+
+    public function update(BookRequest $request , $id){
+        $data=$request->validated();
+        $book=Book::findorfail($id);
+        $book->update($data);
+        return redirect()->back()->with('message','updated successfully');
     }
 
 }

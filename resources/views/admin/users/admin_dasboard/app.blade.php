@@ -212,10 +212,10 @@
                                     <td>{{$user['location']}}</td>
                                     
                                     <td>
-                                        <button class="edit-btn">
+                                        <a href="{{route('admin.users.edit',$user['id'])}}" class="edit-btn">
                                         <i class="fa-solid fa-pen"></i>
                                         تعديل
-                                    </button>
+                                        </a>
 
                                     <form action="{{route('admin.users.destroy',$user['id'])}}" method="POST" style="display:inline;">
                                     @csrf
@@ -296,11 +296,10 @@
                                     
                                     <td>
                                         
-                                        <button class="edit-btn"
-                                        onclick="editBook('Atomic Habits')">
+                                        <a href="{{route('admin.books.edit',$book['id'])}}" class="edit-btn">
                                         <i class="fa-solid fa-pen"></i>
                                         تعديل
-                                    </button>
+                                        </a>
                                     
                                     <form action="{{route('admin.books.destroy',$book['id'])}}" method="POST" style="display:inline;">
                                     @csrf

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add User</title>
+    <title>تعديل</title>
 
     <style>
         body {
@@ -78,27 +78,25 @@
 
     <div class="form-container">
 
-        <h2>إضافة مستخدم</h2>
+        <h2>تعديل بيانات الكتاب</h2>
 
-        <form action="{{route('admin.users.store')}}" method="POST">
+        <form action="{{route('admin.books.update',$book->id)}}" method="POST">
             @csrf
+            @method('put')
 
-            <label for="name">الإسم</label>
-            <input type="text" id="name" name="name" value="{{ old('name') }}">
+            <label for="name">العنوان</label>
+            <input type="text" id="name" name="name" value="{{$book['title']}}">
 
-            <label for="email">البريد الالكتروني</label>
-            <input type="email" id="email" name="email" value="{{ old('email') }}">
+            <label for="type">النوع</label>
+            <input type="text" id="type" name="type" value="{{$book['type']}}">
 
-            <label for="password">كلمة السر</label>
-            <input type="password" id="password" name="password" value="{{ old('password') }}">
+            <label for="status">حالة الكتاب</label>
+            <input type="text" id="status" name="status" value="{{$book['status']}}">
 
-            <label for="phone">الهاتف</label>
-            <input type="text" id="phone" name="phone" value="{{ old('phone') }}">
+            <label for="state">الحالة</label>
+            <input type="text" id="state" name="state" value="{{$book['state']}}">
 
-            <label for="location">المكان</label>
-            <input type="text" id="location" name="location" value="{{ old('location') }}">
-
-            <button type="submit">إضافة</button>
+            <button type="submit">تعديل</button>
 
         </form>
 
