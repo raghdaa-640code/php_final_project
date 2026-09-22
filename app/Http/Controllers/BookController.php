@@ -10,8 +10,15 @@ use App\Models\Book;
 class BookController 
 {
     public function showbooks(){
-        $books=Book::with('user')->get();    
-        return view('user.book.show',compact('books'));
+        $userid=Auth::user()->id;
+        $otherbooks=Book::where('user_id', '!=', $userid)->get();   
+        return view('user.book.show',compact('otherbooks'));
+    }
+
+    public function showmybooks(){
+        $userid=Auth::user()->id;
+        $mybooks=Book::where('user_id', $userid)->get();   
+        return view('user.shownybooks',compact('mybooks'));
     }
 
     public function addbook()
@@ -24,35 +31,51 @@ class BookController
         $phextension=$request->file('image')->getClientOriginalExtension();
         // $email=User::where('email',$request->email)->value('email');
         $user=Auth::user();
-        // $email=$user->email;
-        $email='sara@gmail.com';   //
-        $request->file('image')->storeAs('images',$email.".".  $phextension);  
-        // $userid=$user->id;
-        $userid=1;    //
-        $bookdata= $request->validated();  
-        $bookdata['user_id']=$userid;         // to add user id with book data
+        $name=$user->name;
+        $request->file('image')->storeAs('images',$name . $user->id .".". $phextension,'public');  
+        $bookdata= $request->validated(); 
+        $bookdata['image']='images/'.$name.$user->id .".".  $phextension; 
+        $bookdata['user_id']=$user->id;         // to add user id with book data
         Book::create($bookdata);
-        return redirect()->route('user.showbooks')->with('message','book added');
+        return redirect()->route('user.showmybooks')->with('message','book added');
 
         }
 
     public function editbook($id)
     {
-        $book = Book::findorfail($id);
+        $book = Book::findorFail($id);
         return view('user.book.edit',compact('book'));
     
     }
 
+        public function updatebook($id, BookRequest $request){
+        $book = Book::findorFail($id);
+        $data= $request -> validated();
+        if ($request->hasFile('image')){
+            $phextension=$request->file('image')->getClientOriginalExtension();
+            $user=Auth::user();
+            $username=Auth::user()->name;
+            $request->file('image')->storeAs('images', $username . $user->id . ".". $phextension,'public');
+            $data['image']='images/'. $username.$user->id .".".  $phextension;
+            }else{
+                $data['image']=$book->image;
+            }
+
+        $book->update($data);
+        return redirect()->route('user.showbooks')->with('message','data updated successfly');
+        
+    }
+
     public function deletebook($id)
     {
-        $book= Book::findorfail($id);
+        $book= Book::findorFail($id);
         $book-> delete();
         return redirect()->back()->with('message','book deleted successfully');
     
     }
 
     public function accept($id){
-        $book= Book::findorfail($id);
+        $book= Book::findorFail($id);
         $book->update(['status' => 'غير متاح']); 
         return redirect()->back();
     }

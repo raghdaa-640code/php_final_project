@@ -55,11 +55,19 @@
         }
     </style>
 
-
 </head>
 
 <body>
     <div class="form-container">
+        <div class="error">
+            @if($errors->any())   
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </div>
+            @endif
+        </div>
         <h2 style="text-align: center; margin-bottom: 20px; font-size: 22px;">إضافة كتاب</h2>
 
         <form action="{{ route('user.storebook') }}" method="POST" enctype="multipart/form-data">

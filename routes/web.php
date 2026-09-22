@@ -22,6 +22,7 @@ Route::prefix('/user')->name('user.')->group(function(){
         Route::delete('/book/{id}/delete','deletebook')->name('deletebook')->where(['id'=>'[0-9]+']);
         Route::put('/book/{id}','updatebook')->name('updatebook')->where(['id'=>'[0-9]+']);
         Route::post('/book/{id}/accept','accept')->name('accept')->where(['id'=>'[0-9]+']);
+        Route::post('{id}/book/showmybooks','showmybooks')->name('showmybooks')->where(['id'=>'[0-9]+']);
     });
 
 });

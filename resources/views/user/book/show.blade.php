@@ -41,9 +41,9 @@
 </head>
 <body>
     <div class="container">
-    @foreach ($books as $book)
+    @foreach ($otherbooks as $book)
         <div class="card">
-            <div class="img"><img src="" alt=""></div>
+            <div class="img"><img src="{{asset('storage/'.$book->image)}}" alt=""></div>
             <h3>{{$book->title}}</h3>
             <p>{{$book->user->name}}</p>
             <p>{{$book->type}}</p>
