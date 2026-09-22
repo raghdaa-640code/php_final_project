@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'password' => ['required', 'string','regex:/^[0-9a-zA-Z]{4,12}$/'],
             'phone'    => ['nullable', 'string', 'regex:/^(010|011|012|015)[0-9]{8}$/','unique:users'],
             'image'    => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:2048'],
-            'location' => ['nullable', 'string', 'regex:/^[\p{Arabic}0-9\s]+{4-35}$/u'],
+            'location' => ['nullable', 'string'],
             
             
         ];
@@ -44,7 +44,6 @@ class RegisterRequest extends FormRequest
             'email.unique'      => 'هذا البريد الإلكتروني مسجل مسبقاً',
             'password.required' => 'يرجى إدخال كلمة المرور',
             'password.regex'      => 'كلمة المرور يجب أن تحتوي على حروف و أرقام وبطول  من 4 إلى 12 خانة',
-            'location.regex'    => 'الموقع يجب أن يحتوي على حروف عربية فقط',
             'image.image'       => 'الملف المرفق يجب أن يكون صورة',
             'image.mimes'       => 'الصورة يجب أن تكون بصيغة PNG أو JPG أو JPEG فقط',
             'image.max'         => 'حجم الصورة يجب ألا يتجاوز 2 ميجابايت'
