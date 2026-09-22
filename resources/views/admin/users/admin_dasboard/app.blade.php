@@ -24,7 +24,7 @@
 
         <nav>
 
-            <a href="#" class="active">
+            <a href="#" class="sidebar-link active" data-section="dashboard">
                 <i class="fa-solid fa-table-columns"></i>
                 لوحة التحكم
             </a>
@@ -34,12 +34,12 @@
                 الصفحة الرئيسية
             </a>
 
-            <a href="#users">
+            <a href="#" class="sidebar-link active" data-section="users">
                 <i class="fa-solid fa-users"></i>
                 المستخدمون
             </a>
 
-            <a href="#books">
+            <a href="#" class="sidebar-link active" data-section="books">
                 <i class="fa-solid fa-book"></i>
                 الكتب
             </a>

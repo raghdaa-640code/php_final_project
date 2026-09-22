@@ -36,3 +36,48 @@ function deleteBook(button) {
         button.closest("tr").remove();
     }
 }
+
+
+
+const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+const usersSection = document.getElementById("users");
+const booksSection = document.getElementById("books");
+
+sidebarLinks.forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const section = this.dataset.section;
+
+        // إزالة active من كل الروابط
+        sidebarLinks.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        // إضافة active للرابط المختار
+        this.classList.add("active");
+
+        // لوحة التحكم → إظهار الاثنين
+        if (section === "dashboard") {
+            usersSection.style.display = "block";
+            booksSection.style.display = "block";
+        }
+
+        // المستخدمون → إظهار المستخدمين فقط
+        else if (section === "users") {
+            usersSection.style.display = "block";
+            booksSection.style.display = "none";
+        }
+
+        // الكتب → إظهار الكتب فقط
+        else if (section === "books") {
+            usersSection.style.display = "none";
+            booksSection.style.display = "block";
+        }
+
+    });
+
+});
