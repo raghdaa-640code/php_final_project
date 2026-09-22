@@ -12,7 +12,7 @@ class UserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,8 +26,7 @@ class UserRequest extends FormRequest
         return [
             'name'=>['required','regex:/^[p{Arabic}a-zA-Z]{2,15}$/'],
             'email'=>['required','email','regex:/^[a-zA-Z0-9]+@[a-zA-Z]+\.(com)$/','unique:users,email,'.$id],
-            'password'=>['required','regex:/^[a-zA-z0-9]{3,15}$/'],
-            'phone'=>['regex:/^(010|012|011|015)[0-9]{8}$/','unique:users,phone'.$id],
+            'phone'=>['regex:/^(010|012|011|015)[0-9]{8}$/','unique:users,phone,'.$id],
             'image'=>['nullable','image','mimes:png,jpg.jpeg'],
             'location'=>['string','required']
 

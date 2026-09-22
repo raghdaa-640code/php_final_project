@@ -131,7 +131,7 @@
             @endif
 
             <div class="form-body">
-                <form class="form-horizontal" action="{{route('user.updateuser',$book->id)}}" enctype="multipart/form-data" method="post" novalidate>
+                <form class="form-horizontal" action="{{route('user.updateuser',$user->id)}}" enctype="multipart/form-data" method="post" novalidate>
                     @csrf
                     @method('put')
                     <div class="form-group row">
@@ -144,31 +144,31 @@
                         <div class="form-group row">
                             <label for="name" class="form-label">اسم المستخدم</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="title" placeholder="Title Here"
-                                    name="title" value="{{$book->title}}" />
+                                <input type="text" class="form-control" id="title" placeholder="Name Here"
+                                    name="name" value="{{$user->name}}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="type" class="form-label">البريد الإلكتروني</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="email" placeholder="Type Here"
-                                    name="type" value="{{$book->type}}" />
+                                <input type="email" class="form-control" id="email" placeholder="Email Here"
+                                    name="email" value="{{$user->email}}" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="status" class="form-label">رقم الهاتف</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="status" placeholder="Status Here"
-                                    name="status" value="{{$book->status}}" />
+                                <input type="text" class="form-control" id="status" placeholder="Phone Here"
+                                    name="phone" value="{{$user->phone}}" />
                             </div>
                         </div>
 
                             <div class="form-group row">
                                 <label for="status" class="form-label">الموقع </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="status" placeholder="Status Here"
-                                        name="status" value="{{$book->status}}" />
+                                    <input type="text" class="form-control" id="location" placeholder="Location Here"
+                                        name="location" value="{{$user->location}}" />
                                 </div>
                             </div>
                             <div class="border-top">

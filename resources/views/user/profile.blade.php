@@ -24,9 +24,9 @@
 </head>
 <body class="bg-light">
 
-<?php  
-use Illuminate\Support\Facades\Auth;
-$user = Auth::user(); ?>
+<!-- <?php  
+// use Illuminate\Support\Facades\Auth;
+// $user = Auth::user(); ?> -->
 
 <div class="container">
     <div class="card profile-card shadow">
@@ -53,8 +53,11 @@ $user = Auth::user(); ?>
                 </p>
             </div>
 
-            <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3">
+            <a href="{{ route('user.editprofile' , $user->id) }}" class="btn btn-primary mt-3">
                 تعديل البيانات
+            </a>
+            <a href="{{ route('user.deleteuser', $user->id) }}" class="btn btn-danger mt-3">
+                حذف الحساب
             </a>
 
         </div>

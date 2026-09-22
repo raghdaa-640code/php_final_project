@@ -13,7 +13,6 @@ Route::prefix('/user')->name('user.')->group(function(){
         Route::get('/{id}/profile','profile')->name('profile')->where(['id'=>'[0-9]+']);
         Route::get('/{id}/profile/edit','editprofile')->name('editprofile')->where(['id'=>'[0-9]+']);
         Route::put('/{id}/profile/update','updateuser')->name('updateuser')->where(['id'=>'[0-9]+']);
-        Route::post('/profile/store','storeuser')->name('storeuser');
         Route::delete('/profile/{id}/delete','deleteuser')->name('deleteuser')->where(['id'=>'[0-9]+']);
 
     });
