@@ -25,11 +25,11 @@
         <nav>
 
             <a href="#" class="active">
-                <i class="fa-solid fa-house"></i>
+                <i class="fa-solid fa-table-columns"></i>
                 لوحة التحكم
             </a>
 
-            <a href="#" class="active">
+            <a href="#" >
                 <i class="fa-solid fa-house"></i>
                 الصفحة الرئيسية
             </a>
@@ -44,27 +44,13 @@
                 الكتب
             </a>
 
-            <a href="#">
-                <i class="fa-solid fa-right-left"></i>
-                طلبات التبادل
-            </a>
-
-            <a href="#">
-                <i class="fa-solid fa-chart-column"></i>
-                التقارير
-            </a>
-
-            <a href="#">
+            <a href="{{route('resources/views/admin/reviews/index.blade.php')}}">
                 <i class="fa-solid fa-comments"></i>
                 الاراء
             </a>
-            <a href="#">
+            <a href="{{route('resources/views/admin/reports/index.blade.php')}}">
                 <i class="fa-solid fa-flag"></i>
                 البلاغات
-            </a>
-            <a href="#">
-                <i class="fa-solid fa-gear"></i>
-                الإعدادات
             </a>
 
         </nav>
