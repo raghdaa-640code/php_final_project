@@ -16,5 +16,10 @@ class UserController extends Controller
     {    $id= User::findorfail($id);
         return view('user.profile');
     }
+    public function editprofile($id){
 
+    }
+    public function updateuser($id){
+        
+    }
 }

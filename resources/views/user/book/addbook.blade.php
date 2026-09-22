@@ -97,7 +97,7 @@
                 <input type="file" name="image">
             </div>
 
-            <button type="submit" class="submit-btn">إضافة الكتاب</button>
+            <a href="{{route('book.addbook')}}">إضافة الكتاب</button>
         </form>
     </div>
 

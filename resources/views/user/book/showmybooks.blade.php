@@ -31,10 +31,10 @@
                 </div>
 
                 <div class="card-footer bg-transparent d-flex justify-content-between">
-                    <a href="{{ route('books.edit', $book->id) }}"
+                    <a href="{{ route('books.editbook', $book->id) }}"
                        class="btn btn-sm btn-warning">تعديل</a>
 
-                    <form action="{{ route('books.delete', $book->id) }}"
+                    <form action="{{ route('books.deletebook', $book->id) }}"
                           method="POST"
                           onsubmit="return confirm('هل أنت متأكد من حذف هذا الكتاب؟')">
                         @csrf

@@ -10,8 +10,12 @@ Route::get('/',HomeController::class);
 Route::prefix('/user')->name('user.')->group(function(){
     Route::controller(UserController::class)->group(function(){
         Route::get('/userhome','userhome')->name('userhome');
-        Route::get('/{id}/profile','profile')->name('profile')->where(['id'=>'[0-9]+']);;
-        
+        Route::get('/{id}/profile','profile')->name('profile')->where(['id'=>'[0-9]+']);
+        Route::get('/{id}/profile/edit','editprofile')->name('editprofile')->where(['id'=>'[0-9]+']);
+        Route::put('/{id}/profile/update','updateuser')->name('updateuser')->where(['id'=>'[0-9]+']);
+        Route::post('/profile/store','storeuser')->name('storeuser');
+        Route::delete('/profile/{id}/delete','deleteuser')->name('deleteuser')->where(['id'=>'[0-9]+']);
+
     });
 
     Route::controller(BookController::class)->group(function(){
@@ -23,6 +27,7 @@ Route::prefix('/user')->name('user.')->group(function(){
         Route::put('/book/{id}','updatebook')->name('updatebook')->where(['id'=>'[0-9]+']);
         Route::post('/book/{id}/accept','accept')->name('accept')->where(['id'=>'[0-9]+']);
         Route::post('{id}/book/showmybooks','showmybooks')->name('showmybooks')->where(['id'=>'[0-9]+']);
+        Route::post('{id}/book/request','request')->name('request')->where(['id'=>'[0-9]+']);
     });
 
 });
