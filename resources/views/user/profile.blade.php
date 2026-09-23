@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\Auth;
 $user = Auth::user(); ?>
 
 <header class="books-navbar">
-    <a href="{{ route('showbooks') }}" class="logo">
+    <a href="{{ route('user.showbooks') }}" class="logo">
         <img src="{{ asset('storage/images/final.png') }}" alt="رحلة كتاب">
     </a>
 
     <nav class="nav-links">
         <a href="{{ url('/') }}">الرئيسية</a>
         <a href="{{ route('user.profile', $user->id) }}" class="active">حسابي</a>
-        <a href="{{ route('showbooks') }}">الكتب المتاحة</a>
-        <a href="{{ route('showmybooks', ['id' => $user->id]) }}">كتبي</a>
+        <a href="{{ route('user.showbooks') }}">الكتب المتاحة</a>
+        <a href="{{ route('user.showmybooks', ['id' => $user->id]) }}">كتبي</a>
     </nav>
 
     <div class="auth-buttons">

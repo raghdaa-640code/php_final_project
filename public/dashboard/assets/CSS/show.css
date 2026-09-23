@@ -29,10 +29,20 @@ body {
     color: var(--text);
 }
 
+body > .navbar {
+    display: none;
+}
+
+body > .container:has(.books-navbar) {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
 
 .books-navbar {
     width: 100%;
     min-height: 67px;
+    direction: rtl;
 
     padding: 0 7%;
 

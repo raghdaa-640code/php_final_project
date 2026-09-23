@@ -1,0 +1,75 @@
+:root {
+	--cream: #EEE4DA;
+	--cream-light: #F8F2EC;
+	--burgundy: #4D0E13;
+	--dark-burgundy: #3A080C;
+	--muted: #806D6D;
+	--border: #DED1C7;
+	--white: #FFFFFF;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--cream);
+	color: var(--burgundy);
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+.user-home-container {
+	width: min(92%, 900px);
+	margin: 55px auto;
+	padding: 45px 28px;
+	text-align: center;
+	background: var(--cream-light);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	box-shadow: 0 5px 18px rgba(77, 14, 19, 0.08);
+}
+
+.welcome-message {
+	margin: 0 0 30px;
+	color: var(--burgundy);
+	font-size: 30px;
+}
+
+.links-section {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.links-section .nav-link {
+	min-width: 130px;
+	padding: 11px 18px;
+	border: 1px solid var(--burgundy);
+	border-radius: 8px;
+	color: var(--burgundy);
+	text-decoration: none;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+
+.links-section .nav-link:hover {
+	background: var(--burgundy);
+	color: var(--white);
+}
+
+@media (max-width: 576px) {
+	.user-home-container {
+		width: 94%;
+		margin: 30px auto;
+		padding: 32px 18px;
+	}
+
+	.welcome-message {
+		font-size: 24px;
+	}
+
+	.links-section .nav-link {
+		width: 100%;
+	}
+}

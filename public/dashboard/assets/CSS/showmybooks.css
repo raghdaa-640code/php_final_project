@@ -157,9 +157,32 @@
     }
 
     .alert-info {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 0;
+        padding: 14px 16px;
         color: var(--burgundy);
         background: var(--cream-light);
         border: 1px solid var(--border);
+        text-align: center;
+    }
+
+    .alert-info + a {
+        flex: 0 0 auto;
+        display: block;
+        width: 145px;
+        margin: 18px auto 0;
+        padding: 10px 16px;
+        background: var(--burgundy);
+        color: var(--white);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+
+    }
+
+    .alert-info + a:hover {
+        background: var(--dark-burgundy);
     }
 
     @media (max-width: 576px) {

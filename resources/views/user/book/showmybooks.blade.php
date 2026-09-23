@@ -5,12 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/showmybooks.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/show.css') }}">
     <title>Document</title>
     <style>
 
 </style>
 </head>
 <body>
+<header class="books-navbar">
+    <a href="{{ route('user.showbooks') }}" class="logo">
+        <img src="{{ asset('storage/images/final.png') }}" alt="رحلة كتاب">
+    </a>
+
+    <nav class="nav-links">
+        <a href="{{ url('/') }}">الرئيسية</a>
+        <a href="{{ route('user.showbooks') }}">الكتب المتاحة</a>
+        <a href="{{ route('user.profile', ['id' => auth()->id()]) }}">حسابي</a>
+        <a href="{{ route('user.showmybooks', ['id' => auth()->id()]) }}" class="active">كتبي</a>
+        <a href="{{ route('user.addbook') }}">إضافة كتاب</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="{{ route('auth.logout') }}" class="login-btn">تسجيل الخروج</a>
+    </div>
+</header>
+
 <div class="container py-4">
     <h2>كتبي الخاصة</h2>
     <hr>
@@ -20,6 +39,7 @@
     <div class="alert alert-info text-center">
         لم تقم بإضافة أي كتب بعد.
     </div>
+        <a href="{{ route('user.addbook') }}">إضافة الكتاب</a>
 @else
     @foreach($mybooks as $book)
         <div class="col-md-4 mb-4">

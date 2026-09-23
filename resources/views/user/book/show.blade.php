@@ -38,8 +38,12 @@
                 حسابي
             </a>
 
-            <a href="{{ route('showmybooks', ['id' => auth()->id()]) }}">
+            <a href="{{ route('user.showmybooks', ['id' => auth()->id()]) }}">
                 كتبي
+            </a>
+
+            <a href="{{ route('user.addbook') }}">
+                إضافة كتاب
             </a>
 
         </nav>
