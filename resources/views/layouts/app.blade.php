@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'المكتبة')</title>
     <style>
-        /* * { box-sizing: border-box; }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             font-family: Arial, Tahoma, sans-serif;
@@ -14,16 +14,95 @@
         }
         a { text-decoration: none; color: inherit; }
         .navbar {
-            background: #222;
-            color: white;
-            padding: 14px 6%;
+            width: 100%;
+            height: 67px;
+            padding: 0 7%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 15px;
+            background: #EEE4DA;
+            border-bottom: 1px solid rgba(77, 14, 19, 0.08);
         }
-        .navbar-links { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
-        .navbar a { color: white; }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { width: 125px; height: auto; display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a {
+            position: relative;
+            color: #4D0E13;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 24px 0;
+            transition: 0.25s;
+        }
+        .nav-links a:hover { color: #A9827D; }
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 11px;
+            height: 2px;
+            background: #4D0E13;
+        }
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            order: 3;
+        }
+        .auth-buttons a,
+        .auth-buttons .login-btn,
+        .auth-buttons .register-btn,
+        .auth-buttons .logout-button,
+        .auth-buttons span.login-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            padding: 9px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+            white-space: nowrap;
+        }
+        .login-btn {
+            color: #4D0E13;
+            border: 1px solid #4D0E13;
+            background: transparent;
+        }
+        .login-btn:hover { background: #4D0E13; color: #FFFFFF; }
+        .register-btn { background: #4D0E13; color: #FFFFFF; border: 1px solid #4D0E13; }
+        .register-btn:hover { background: #3A080C; }
+        .logout-form { margin: 0; }
+        .logout-button {
+            border: 1px solid #4D0E13;
+            background: #4D0E13;
+            color: #FFFFFF;
+            font: inherit;
+            cursor: pointer;
+        }
+        .logout-button:hover { background: #3A080C; }
+        @media (max-width: 1050px) {
+            .navbar { padding: 0 4%; }
+            .nav-links { gap: 18px; }
+        }
+        @media (max-width: 700px) {
+            .navbar { height: auto; min-height: 70px; padding: 10px 5%; flex-wrap: wrap; gap: 10px; }
+            .logo { order: 1; }
+            .logo img { width: 105px; }
+            .auth-buttons { order: 2; }
+            .auth-buttons a, .logout-button { padding: 7px 11px; font-size: 10px; }
+            .nav-links { order: 3; width: 100%; justify-content: center; gap: 18px; overflow-x: auto; padding: 5px 0; }
+            .nav-links a { white-space: nowrap; padding: 7px 0; font-size: 11px; }
+            .nav-links a.active::after { bottom: 0; }
+        }
+        @media (max-width: 400px) {
+            .auth-buttons .login-btn { display: none; }
+            .nav-links { gap: 14px; }
+        }
         .container { width: 90%; max-width: 1000px; margin: 30px auto; }
         .card {
             background: white;
@@ -83,31 +162,44 @@
         }
         .error { background: #ffebee; color: #b71c1c; }
         .muted { color: #777; }
-        .admin-box { border-top: 1px solid #eee; margin-top: 15px; padding-top: 15px; } */
+        .admin-box { border-top: 1px solid #eee; margin-top: 15px; padding-top: 15px; }
     </style>
+    @stack('styles')
 </head>
 <body>
-<nav class="navbar">
-    <div>
-        <a href="{{ route('reviews.index') }}">المكتبة</a>
-    </div>
-    <div class="navbar-links">
-        <a href="{{ route('reviews.index') }}">الآراء</a>
+<header class="navbar">
+    <a href="{{ route('reviews.index') }}" class="logo">
+        <img src="{{ asset('images/final.png') }}" alt="رحلة كتاب">
+    </a>
+
+    <nav class="nav-links">
+        <a href="{{ route('reviews.index') }}" class="{{ request()->routeIs('reviews.index') ? 'active' : '' }}">الرئيسية</a>
+        <a href="#">من نحن</a>
+        <a href="#">تواصل معنا</a>
+        <a href="{{ route('reviews.index') }}">مراجعات القراء</a>
+        <a href="#">الكتب المتاحة</a>
+    </nav>
+
+    <div class="auth-buttons">
         @auth
-            <a href="{{ route('reports.user') }}">بلاغاتي</a>
-            @if(auth()->user()->role === 'admin')
-                <a href="{{ route('admin.reports.index') }}">بلاغات الأدمن</a>
-                <a href="{{ route('admin.reviews.index') }}">آراء الأدمن</a>
+            @if(Route::has('logout'))
+                <form class="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="logout-button">تسجيل الخروج</button>
+                </form>
+            @else
+                <span class="logout-button">تم تسجيل الدخول</span>
             @endif
-            <form class="inline-form" method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn-secondary">تسجيل الخروج</button>
-            </form>
         @else
-            <a href="{{ route('login') }}">تسجيل الدخول</a>
+            @if(Route::has('login'))
+                <a href="{{ route('login') }}" class="login-btn">تسجيل الدخول</a>
+                <a href="{{ route('login') }}" class="register-btn">إنشاء حساب</a>
+            @else
+                <span class="login-btn">تسجيل الدخول</span>
+            @endif
         @endauth
     </div>
-</nav>
+</header>
 
 <div class="container">
     @if(session('success'))

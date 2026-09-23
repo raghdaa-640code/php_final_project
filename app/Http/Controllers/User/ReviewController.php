@@ -19,7 +19,7 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول لإضافة رأي.');
+            abort(403, 'يجب تسجيل الدخول لإضافة رأي.');
         }
 
         $request->validate([
@@ -38,7 +38,7 @@ class ReviewController extends Controller
     public function edit(review $review)
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول لتعديل رأيك.');
+            abort(403, 'يجب تسجيل الدخول لتعديل رأيك.');
         }
 
         if ($review->user_id !== Auth::id()) {

@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\Admin\ReportController as AdminReportController;
 use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\User\ReportController as UserReportController;
 use App\Http\Controllers\User\ReviewController as UserReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,9 +9,6 @@ Route::get('/', function () {
     return redirect()->route('reviews.index');
 });
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.store');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/reviews', [UserReviewController::class, 'index'])->name('reviews.index');
 
@@ -22,8 +17,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/reviews/{review}/edit', [UserReviewController::class, 'edit'])->name('reviews.edit');
     Route::put('/reviews/{review}', [UserReviewController::class, 'update'])->name('reviews.update');
     Route::delete('/reviews/{review}', [UserReviewController::class, 'destroy'])->name('reviews.destroy');
-
-    Route::get('/report', [UserReportController::class, 'index'])->name('reports.user');
 });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
