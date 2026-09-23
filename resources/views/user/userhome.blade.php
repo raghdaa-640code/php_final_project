@@ -18,7 +18,7 @@
     <div class="links-section">
         
         <a href="{{ route('showbooks') }}" class="nav-link">تصفح الكتب</a>
-
+    <a href="{{ route('showmybooks',['id' => auth()->id()]) }}" class="nav-link">كتبي</a>
         <a href="{{ route('user.profile',['id' => auth()->id()]) }}" class="nav-link">الملف الشخصي</a>
     </div>
 </div>

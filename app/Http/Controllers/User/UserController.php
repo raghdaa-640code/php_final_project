@@ -19,7 +19,7 @@ class UserController extends Controller
     }
     public function editprofile($id){
        $user= User::findorfail($id);
-       return view('user.editprofile',compact('user'));
+       return view('user.edit',compact('user'));
     }
     public function updateuser($id, UserRequest $request){
         $user= User::findorfail($id);
@@ -34,7 +34,7 @@ class UserController extends Controller
             }
 
         $user->update($data);
-        return redirect()->route('user.profile',$user->id)->with('message','data updated successfly');
+        return redirect()->route('profile',$user->id)->with('message','data updated successfly');
         
     }
 }

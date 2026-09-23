@@ -18,7 +18,7 @@ class BookController
     public function showmybooks(){
         $userid=Auth::user()->id;
         $mybooks=Book::where('user_id', $userid)->get();   
-        return view('user.shownybooks',compact('mybooks'));
+        return view('user.book.showmybooks', compact('mybooks'));
     }
 
     public function addbook()
@@ -27,17 +27,18 @@ class BookController
     }
 
     public function storebook(BookRequest $request){
-        // $phname=$request->file('image')->getClientOriginalName();
-        $phextension=$request->file('image')->getClientOriginalExtension();
+        // $phextension=$request->file('image')->getClientOriginalExtension();
         // $email=User::where('email',$request->email)->value('email');
         $user=Auth::user();
-        $name=$user->name;
-        $request->file('image')->storeAs('images',$name . $user->id .".". $phextension,'public');  
+        // $name=$user->name;
+        $imagepath = $request->file('image')->store('images', 'public');
         $bookdata= $request->validated(); 
-        $bookdata['image']='images/'.$name.$user->id .".".  $phextension; 
+        $bookdata['image'] = $imagepath;
+        // $request->file('image')->storeAs('images',$name . $bookdata->id .".". $phextension,'public');  
+        // $bookdata['image']='images/'.$name.$bookdata->id .".".  $phextension; 
         $bookdata['user_id']=$user->id;         // to add user id with book data
         Book::create($bookdata);
-        return redirect()->route('user.showmybooks')->with('message','book added');
+            return redirect()->route('showmybooks')->with('message','book added');
 
         }
 
@@ -52,17 +53,15 @@ class BookController
         $book = Book::findorFail($id);
         $data= $request -> validated();
         if ($request->hasFile('image')){
-            $phextension=$request->file('image')->getClientOriginalExtension();
-            $user=Auth::user();
-            $username=Auth::user()->name;
-            $request->file('image')->storeAs('images', $username . $user->id . ".". $phextension,'public');
-            $data['image']='images/'. $username.$user->id .".".  $phextension;
+        $imagepath = $request->file('image')->store('images', 'public');
+            $userid=Auth::user()->id;
+            $data['image']=$imagepath;
             }else{
                 $data['image']=$book->image;
             }
 
         $book->update($data);
-        return redirect()->route('user.showbooks')->with('message','data updated successfly');
+        return redirect()->route('showmybooks',$userid)->with('message','data updated successfly');
         
     }
 
@@ -76,8 +75,13 @@ class BookController
 
     public function accept($id){
         $book= Book::findorFail($id);
-        $book->update(['status' => 'غير متاح']); 
+        $book->update(['state' => 'غير متاح']); 
         return redirect()->back();
+    }
+    public function request($id)
+    {
+    // $book = Book::findOrFail($id);
+    return redirect()->back()->with('message', 'تم طلب الكتاب بنجاح');
     }
     
 }

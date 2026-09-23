@@ -24,7 +24,7 @@ class BookRequest extends FormRequest
     {   $id=$this->route('id');
         return [
             'title'=>['required','regex:/^[\p{Arabic}a-zA-Z0-9\s]{3,50}$/u'],
-            'image'=>['required','image','mimes:png,jpg,jpeg'],
+            'image'=>['nullable','image','mimes:png,jpg,jpeg'],
             'type'=>['nullable','regex:/^[\p{Arabic}0-9\s]{3,20}$/u']
         ];
     }

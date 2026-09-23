@@ -73,9 +73,9 @@ Route::middleware(['auth'])->prefix('/user')->controller(UserBookController::cla
         Route::get('/book/{id}/edit','editbook')->name('editbook')->where(['id'=>'[0-9]+']);
         Route::delete('/book/{id}/delete','deletebook')->name('deletebook')->where(['id'=>'[0-9]+']);
         Route::put('/book/{id}','updatebook')->name('updatebook')->where(['id'=>'[0-9]+']);
-        Route::post('/book/{id}/accept','accept')->name('accept')->where(['id'=>'[0-9]+']);
-        Route::post('{id}/book/showmybooks','showmybooks')->name('showmybooks')->where(['id'=>'[0-9]+']);
-        Route::post('{id}/book/request','request')->name('request')->where(['id'=>'[0-9]+']);
+        Route::get('/book/{id}/accept','accept')->name('accept')->where(['id'=>'[0-9]+']);
+        Route::get('{id}/book/showmybooks','showmybooks')->name('showmybooks')->where(['id'=>'[0-9]+']);
+        Route::get('{id}/book/request','request')->name('request')->where(['id'=>'[0-9]+']);
 });
 
 ?>
