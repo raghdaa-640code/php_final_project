@@ -45,7 +45,7 @@ Route::post('/delete/{id}', function ($id) {
 
 Route::get('/', function(){
     return view('home');
-});
+})->name('home');
 
 Route::middleware(['auth', 'isadmin'])->prefix('/admin')->name('admin.')->group(function () {
 
