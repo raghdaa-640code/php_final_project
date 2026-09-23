@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="ar" dir='rtl'>
 <head>
@@ -49,8 +50,24 @@
             <p>{{$book->type}}</p>
             <p>{{$book->status}}</p>
             <p>{{$book->user->location}}</p>
+            <p class='myphone' hidden>{{$book->user->phone}}</p>
         </div>
-    @endforeach
+            <!-- <details>
+            <a href="{{route('request')}}" >اطلب الكتاب</a>
+                <p>رقم الهاتف: {{$book->user->phone}}</p>
+            </details> -->
+        <a href="{{route('user.request',$book->id)}}" class="btn btn-success" onclick="showphone()">اطلب الكتاب</a>
+        @endforeach
     </div>
+
+<script>
+    
+    function showphone(){
+        const myphone = document.querySelector('.myphone');
+        if(myphone){
+            myphone.removeAttribute('hidden');
+        };
+    }
+</script>
 </body>
 </html>

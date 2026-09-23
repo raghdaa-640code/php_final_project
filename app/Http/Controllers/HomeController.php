@@ -12,6 +12,15 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('user/userhome');
+        return view('user.userhome');
     }
 }
+// class HomeController extends Controller{
+    
+// public function index(){
+//     return view('home');
+// }
+
+// }
+
+?>

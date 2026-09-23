@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -24,9 +26,9 @@
 </head>
 <body class="bg-light">
 
-<!-- <?php  
-// use Illuminate\Support\Facades\Auth;
-// $user = Auth::user(); ?> -->
+<?php  
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user(); ?>
 
 <div class="container">
     <div class="card profile-card shadow">

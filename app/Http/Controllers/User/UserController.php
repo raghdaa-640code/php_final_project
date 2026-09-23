@@ -38,3 +38,17 @@ class UserController extends Controller
         
     }
 }
+// class UserController extends Controller{
+    
+//     public function userhome(){
+//         $user=User::get();
+//         return view('user.userhome');
+//     }
+
+//     public function profile($id){
+//         $id= User::findorfail($id);
+//         return view('user.profile');
+//     }
+// }
+
+?>
