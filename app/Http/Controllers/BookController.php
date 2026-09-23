@@ -54,16 +54,16 @@ class BookController
         public function updatebook($id, BookRequest $request){
         $book = Book::findorFail($id);
         $data= $request -> validated();
+        $userid=Auth::user()->id;
         if ($request->hasFile('image')){
-        $imagepath = $request->file('image')->store('images', 'public');
-            $userid=Auth::user()->id;
+        $imagepath = $request->file('image')->store('images', 'public');    
             $data['image']=$imagepath;
             }else{
                 $data['image']=$book->image;
             }
 
         $book->update($data);
-        return redirect()->route('showmybooks',$userid)->with('message','data updated successfly');
+        return redirect()->route('user.showmybooks',$userid)->with('message','data updated successfly');
         
     }
 

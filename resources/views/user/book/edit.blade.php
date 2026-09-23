@@ -163,7 +163,7 @@
             @endif
 
             <div class="form-body">
-                <form class="form-horizontal" action="{{route('updatebook',$book->id)}}" enctype="multipart/form-data" method="post" novalidate>
+                <form class="form-horizontal" action="{{route('user.updatebook',$book->id)}}" enctype="multipart/form-data" method="post" novalidate>
                     @csrf
                     @method('put')
                     <div class="card-body">
