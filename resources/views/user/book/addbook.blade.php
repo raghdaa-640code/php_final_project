@@ -43,13 +43,22 @@
                     
                 </select>
             </div>
+            <div class="form-group">
+                <label>حالة الكتاب</label>
+                <select name="state">
+                    <option value="متاح">متاح</option>
+                    <option value="غير متاح">غير متاح</option>
+                    
+                </select>
+            </div>
 
             <div class="form-group">
                 <label>صورة الكتاب</label>
                 <input type="file" name="image">
             </div>
 
-            <a href="{{route('user.addbook')}}">إضافة الكتاب</a>
+            <button type="submit" class="btn">إضافة الكتاب</button>
+            
         </form>
     </div>
 

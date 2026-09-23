@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 // use Illuminate\Support\Facades\Auth;
 // use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -37,6 +38,14 @@ class UserController extends Controller
         return redirect()->route('user.profile', $user->id)->with('message','data updated successfly');
         
     }
+
+    public function deleteuser($id)
+{
+    $user = User::findOrFail($id);
+    Auth::logout();
+    $user->delete();
+    return redirect()->route('auth.register');
+    }   
 }
 // class UserController extends Controller{
     

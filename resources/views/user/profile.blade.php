@@ -3,8 +3,10 @@
 <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/show.css') }}">
 @section('content')
 
-<?php  
+<?php
+
 use Illuminate\Support\Facades\Auth;
+
 $user = Auth::user(); ?>
 
 <header class="books-navbar">
@@ -29,11 +31,11 @@ $user = Auth::user(); ?>
         <div class="profile-content">
 
             @if($user->image)
-                <img src="{{ asset('storage/' . $user->image) }}"
-                     class="profile-image"
-                     alt="صورة المستخدم">
+            <img src="{{ asset('storage/' . $user->image) }}"
+                class="profile-image"
+                alt="صورة المستخدم">
             @else
-                <div class="profile-empty-image">لا توجد صورة</div>
+            <div class="profile-empty-image">لا توجد صورة</div>
             @endif
 
             <h3>{{ $user->name }}</h3>
@@ -50,12 +52,17 @@ $user = Auth::user(); ?>
             </div>
 
             <div class="profile-actions">
-                <a href="{{ route('user.editprofile' , $user->id) }}" class="profile-button profile-edit">
+                <a href="{{ route('user.editprofile' , $user->id) }}" class="profile-button profile-edit" style="height:39px">
                     تعديل البيانات
                 </a>
-                <a href="{{ route('user.deleteuser', $user->id) }}" class="profile-button profile-delete">
-                    حذف الحساب
-                </a>
+
+                <form action="{{ route('user.deleteuser', $user->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="profile-button profile-edit">حذف الحساب</button>
+                </form>
+
             </div>
 
         </div>

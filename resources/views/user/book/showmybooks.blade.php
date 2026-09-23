@@ -55,7 +55,7 @@
 
                 <div class="card-footer bg-transparent d-flex justify-content-between">
                     
-                    <form action="{{ route('deletebook', $book->id) }}"
+                    <form action="{{ route('user.deletebook', $book->id) }}"
                           method="POST"
                           onsubmit="return confirm('هل أنت متأكد من حذف هذا الكتاب؟')">
                         @csrf
@@ -64,9 +64,9 @@
                             حذف
                         </button>
                     </form>
-                    <a href="{{ route('editbook', $book->id) }}"
+                    <a href="{{ route('user.editbook', $book->id) }}"
                        class="btn  btn-warning">تعديل</a>
-                    <a href="{{ route('accept', $book->id) }}" class="btn btn-secondary">
+                    <a href="{{ route('user.accept', $book->id) }}" class="btn btn-secondary">
                         تم طلب الكتاب
                     </a>
                 </div>

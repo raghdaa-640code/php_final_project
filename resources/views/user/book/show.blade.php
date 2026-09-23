@@ -84,9 +84,15 @@
                 <p class="myphone" hidden>{{ $book->user->phone }}</p>
             </div>
 
-            <button type="button" class="request-btn" onclick="showphone(this)">
+            <!-- <button type="button" class="request-btn" onclick="showphone(this)">
                 اطلب الكتاب
-            </button>
+            </button> -->
+
+            @if($book->state == 'غير متاح')
+            <button class="request-btn" disabled>غير متاح حالياً</button>
+            @else
+             <button class="request-btn" onclick="showphone(this)">اطلب الكتاب </button>
+            @endif
         </div>
     @endforeach
     </div>

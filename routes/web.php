@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\BookController as AdminBookController;
@@ -80,7 +80,7 @@ Route::middleware(['auth'])->prefix('/user')->name('user.')->group(function () {
         Route::get('/{id}/profile', 'profile')->name('profile')->where(['id' => '[0-9]+']);
         Route::get('/{id}/profile/edit', 'editprofile')->name('editprofile')->where(['id' => '[0-9]+']);
         Route::put('/{id}/profile/update', 'updateuser')->name('updateuser')->where(['id' => '[0-9]+']);
-        Route::delete('/profile/{id}/delete', 'deleteuser')->name('deleteuser')->where(['id' => '[0-9]+']);
+        Route::delete('/{id}/profile/delete', 'deleteuser')->name('deleteuser')->where(['id' => '[0-9]+']);
     });
 
     Route::controller(UserBookController::class)->group(function () {

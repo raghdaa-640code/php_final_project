@@ -31,14 +31,16 @@ class BookController
         // $email=User::where('email',$request->email)->value('email');
         $user=Auth::user();
         // $name=$user->name;
+        $bookdata= $request->validated();
+        if ($request->hasFile('image')) {
         $imagepath = $request->file('image')->store('images', 'public');
-        $bookdata= $request->validated(); 
         $bookdata['image'] = $imagepath;
+        } 
         // $request->file('image')->storeAs('images',$name . $bookdata->id .".". $phextension,'public');  
         // $bookdata['image']='images/'.$name.$bookdata->id .".".  $phextension; 
         $bookdata['user_id']=$user->id;         // to add user id with book data
         Book::create($bookdata);
-            return redirect()->route('showmybooks')->with('message','book added');
+            return redirect()->route('user.showmybooks',$user->id)->with('message','book added');
 
         }
 

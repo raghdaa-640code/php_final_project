@@ -68,7 +68,7 @@
      background: var(--cream-light);
  }
 
- .form-container form>a {
+ .form-container form>button {
      display: block;
      width: 145px;
      margin: 28px auto 0;
@@ -84,7 +84,7 @@
      cursor: pointer;
  }
 
- .form-container form>a:hover {
+ .form-container form>button:hover {
      background: var(--dark-burgundy);
  }
 
