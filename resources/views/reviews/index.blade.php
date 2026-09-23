@@ -380,7 +380,7 @@
             </form>
         @else
             @if(Route::has('login'))
-                <p>لإضافة رأي جديد، يجب <a href="{{ route('login') }}" style="color:#2271d1;">تسجيل الدخول</a>.</p>
+                <p>لإضافة رأي جديد، يجب <a href="{{ route('auth.login') }}" style="color:#2271d1;">تسجيل الدخول</a>.</p>
             @else
                 <p>لإضافة رأي جديد، يرجى تسجيل الدخول أولاً.</p>
             @endif

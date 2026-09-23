@@ -44,11 +44,11 @@
                 الكتب
             </a>
 
-            <a href="{{route('resources/views/admin/reviews/index.blade.php')}}">
+            <a href="{{route('admin.reviews.index')}}">
                 <i class="fa-solid fa-comments"></i>
                 الاراء
             </a>
-            <a href="{{route('resources/views/admin/reports/index.blade.php')}}">
+            <a href="{{route('admin.reports.index')}}">
                 <i class="fa-solid fa-flag"></i>
                 البلاغات
             </a>

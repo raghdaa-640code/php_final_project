@@ -44,6 +44,11 @@ class UserController extends Controller
     $user = User::findOrFail($id);
     Auth::logout();
     $user->delete();
+
+    $request = request();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
     return redirect()->route('auth.register');
     }   
 }
@@ -60,4 +65,3 @@ class UserController extends Controller
 //     }
 // }
 
-?>

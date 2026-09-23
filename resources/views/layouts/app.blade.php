@@ -242,8 +242,8 @@
 
     <div class="auth-buttons">
         @auth
-            @if(Route::has('logout'))
-                <form class="logout-form" method="POST" action="{{ route('logout') }}">
+            @if(Route::has('auth.logout.submit'))
+                <form class="logout-form" method="POST" action="{{ route('auth.logout.submit') }}">
                     @csrf
                     <button type="submit" class="logout-button">تسجيل الخروج</button>
                 </form>
@@ -251,9 +251,9 @@
                 <span class="logout-button">تم تسجيل الدخول</span>
             @endif
         @else
-            @if(Route::has('login'))
-                <a href="{{ route('login') }}" class="login-btn">تسجيل الدخول</a>
-                <a href="{{ route('login') }}" class="register-btn">إنشاء حساب</a>
+            @if(Route::has('auth.login'))
+                <a href="{{ route('auth.login') }}" class="login-btn">تسجيل الدخول</a>
+                <a href="{{ route('auth.login') }}" class="register-btn">إنشاء حساب</a>
             @else
                 <span class="login-btn">تسجيل الدخول</span>
             @endif
