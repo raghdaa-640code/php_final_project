@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', function(){
     return view('home');
-});
+})->name('home');
 
 Route::middleware(['auth','isadmin'])->prefix('/admin')->name('admin.')->group(function() {
     Route::controller(AdminUserController::class)->group(function(){
