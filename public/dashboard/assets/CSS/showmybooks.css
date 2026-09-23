@@ -1,0 +1,202 @@
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+    
+    :root {
+        --cream: #EEE4DA;
+        --cream-light: #F8F2EC;
+        --dusty-pink: #C8A49F;
+        --burgundy: #4D0E13;
+        --dark-burgundy: #3A080C;
+        --text: #3E2A2B;
+        --muted: #806D6D;
+        --border: #DED1C7;
+        --white: #FFFFFF;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--text);
+        font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px 12px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -12px;
+        row-gap: 24px;
+    }
+
+    .col-md-4 {
+        width: 33.333333%;
+        padding: 0 12px;
+    }
+
+    .mb-4 {
+        margin-bottom: 24px;
+    }
+
+    .h-100 {
+        height: auto;
+    }
+
+    h2 {
+        color: var(--burgundy);
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        margin: 10px 0 18px;
+    }
+
+    hr {
+        border-color: var(--border);
+        opacity: 1;
+        margin-bottom: 28px;
+    }
+
+    .card {
+        min-height: 0;
+        height: auto;
+        overflow: hidden;
+        background: var(--cream-light);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 5px 18px rgba(77, 14, 19, 0.08);
+    }
+
+    .card-img-top {
+        display: block;
+        width: 180px;
+        height: 240px;
+        margin: 18px auto 0;
+        object-fit: cover;
+        border-radius: 8px;
+        background: var(--sand);
+    }
+
+    .card-body {
+        padding: 18px;
+        text-align: center;
+    }
+
+    .card-title {
+        margin: 0;
+        color: var(--burgundy);
+        font-size: 19px;
+    }
+
+    .card-footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        border-top: 1px solid var(--border);
+        background: var(--cream);
+        padding: 14px;
+    }
+
+    .card-footer > form,
+    .card-footer > a {
+        width: 100%;
+        margin: 0;
+    }
+
+    .card-footer > form {
+        grid-column: 1;
+        grid-row: 1;
+        width: 82%;
+        justify-self: center;
+    }
+
+    .card-footer > a.btn-warning {
+        grid-column: 2;
+        grid-row: 1;
+        width: 82%;
+        justify-self: center;
+    }
+
+    .card-footer > a.btn-secondary {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 58%;
+        justify-self: center;
+    }
+
+    .card-footer .btn {
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        padding: 9px 13px;
+        font-size: 13px;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-footer .btn-warning {
+        background: var(--dusty-pink);
+        color: var(--burgundy);
+    }
+
+    .card-footer .btn-secondary {
+        background: var(--muted);
+        color: var(--white);
+    }
+
+    .card-footer .btn-danger {
+        background: var(--dark-burgundy);
+        color: var(--white);
+    }
+
+    .alert-info {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 0;
+        padding: 14px 16px;
+        color: var(--burgundy);
+        background: var(--cream-light);
+        border: 1px solid var(--border);
+        text-align: center;
+    }
+
+    .alert-info + a {
+        flex: 0 0 auto;
+        display: block;
+        width: 145px;
+        margin: 18px auto 0;
+        padding: 10px 16px;
+        background: var(--burgundy);
+        color: var(--white);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+
+    }
+
+    .alert-info + a:hover {
+        background: var(--dark-burgundy);
+    }
+
+    @media (max-width: 576px) {
+        .col-md-4 {
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+
+        .card-footer {
+            grid-template-columns: 1fr 1fr;
+        }
+    }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('report');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->text('admin_replay')->nullable();
             $table->timestamps();
         });
     }
