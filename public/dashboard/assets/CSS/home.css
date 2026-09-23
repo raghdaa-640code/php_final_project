@@ -171,7 +171,7 @@ button {
 
 }
 
-.login-btn{
+.login-btn {
 
     color: var(--burgundy);
 
@@ -179,10 +179,10 @@ button {
 
 }
 
-.login-btn:hover{
+.login-btn:hover {
 
-    background: var(--burgundy) !important; 
-    color: var(--cream) !important;
+    background: var(--burgundy);
+    color: var(--cream);
 
 }
 

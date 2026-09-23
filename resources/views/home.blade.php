@@ -15,8 +15,15 @@
 <body>
 
     <!-- ================= NAVBAR ================= -->
+<<<<<<< HEAD
     @include('layouts.navbar')
 
+=======
+
+    @include('layouts.navbar')
+
+
+>>>>>>> login-signup
     <!-- ================= HERO ================= -->
 
     <section class="hero">
@@ -25,7 +32,14 @@
 
         <div class="hero-content">
 
+<<<<<<< HEAD
             <img src="final.png" class="hero-logo" alt="رحلة كتاب">
+=======
+            <img
+                src="final.png"
+                class="hero-logo"
+                alt="رحلة كتاب">
+>>>>>>> login-signup
 
             <h1>
                 كتب تنتقل بين الأيدي ..
@@ -57,6 +71,7 @@
 
     <!-- ================= WHY SECTION ================= -->
 
+
     <section class="why-section">
 
         <div class="section-heading">
@@ -74,6 +89,7 @@
             </p>
 
         </div>
+
 
         <div class="features">
 
@@ -96,6 +112,7 @@
 
             </div>
 
+
             <!-- CARD 2 -->
 
             <div class="feature-card">
@@ -114,6 +131,7 @@
                 </p>
 
             </div>
+
 
             <!-- CARD 3 -->
 
@@ -159,6 +177,8 @@
 
     <!-- ================= CTA SECTION ================= -->
 
+
+
     <section class="cta-section">
 
         <div class="cta-content">
@@ -186,6 +206,7 @@
     <footer class="footer">
 
         <div class="footer-container">
+
 
             <!-- LOGO -->
 
@@ -215,6 +236,7 @@
 
             </div>
 
+
             <!-- LINKS -->
 
             <div class="footer-column">
@@ -240,6 +262,7 @@
                 </a>
 
             </div>
+
 
             <!-- INFORMATION -->
 
@@ -267,6 +290,7 @@
 
             </div>
 
+
             <!-- CONTACT -->
 
             <div class="footer-column">
@@ -289,6 +313,7 @@
         </div>
 
     </footer>
+
 
     <script src="{{ asset('home/assets/home.js') }}"></script>
 

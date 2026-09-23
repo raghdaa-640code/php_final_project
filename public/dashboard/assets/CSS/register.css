@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
 
+/* =========================================
+   COLORS
+========================================= */
+
 :root {
     --cream: #EEE4DA;
     --cream-light: #F8F2EC;
@@ -12,6 +16,11 @@
     --white: #FFFFFF;
     --border: #DED1C7;
 }
+
+
+/* =========================================
+   BODY
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -35,6 +44,11 @@ body {
     font-family: "Cairo", sans-serif;
 }
 
+
+/* =========================================
+   REGISTER CONTAINER
+========================================= */
+
 .register-container {
     width: 100%;
     max-width: 450px;
@@ -53,6 +67,11 @@ body {
         0 12px 35px rgba(77, 14, 19, 0.08);
 }
 
+
+/* =========================================
+   TITLE
+========================================= */
+
 .register-container h2 {
     margin: 0 0 28px;
 
@@ -65,9 +84,19 @@ body {
     font-weight: 700;
 }
 
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
 .form-group {
     margin-bottom: 17px;
 }
+
+
+/* =========================================
+   LABEL
+========================================= */
 
 .form-group label {
     display: block;
@@ -80,6 +109,11 @@ body {
 
     font-weight: 600;
 }
+
+
+/* =========================================
+   INPUT
+========================================= */
 
 .form-group input {
     width: 100%;
@@ -168,6 +202,90 @@ body {
     line-height: 1.6;
 }
 
+
+/* Focus */
+
+.form-group input:focus {
+    border-color: var(--dusty-pink);
+
+    box-shadow:
+        0 0 0 3px rgba(200, 164, 159, 0.18);
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder {
+    color: #A89898;
+}
+
+
+/* =========================================
+   FILE INPUT
+========================================= */
+
+.form-group input[type="file"] {
+    height: auto;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    background: var(--white);
+}
+
+
+.form-group input[type="file"]::file-selector-button {
+    margin-left: 10px;
+
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: var(--sand);
+
+    color: var(--burgundy);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: var(--dusty-pink);
+}
+
+
+/* =========================================
+   ERROR MESSAGES
+========================================= */
+
+.error-text {
+    display: block;
+
+    margin-top: 6px;
+
+    padding-right: 3px;
+
+    color: #9A3038;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
 .submit-btn {
     width: 100%;
 
@@ -208,6 +326,11 @@ body {
 .submit-btn:active {
     transform: translateY(0);
 }
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 500px) {
 
