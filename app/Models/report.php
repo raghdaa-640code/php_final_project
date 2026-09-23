@@ -8,6 +8,7 @@ class report extends Model
 {
     protected $fillable = [
         'report',
-        'user_id'
+        'user_id',
+        'admin_reply',
     ];
 }
