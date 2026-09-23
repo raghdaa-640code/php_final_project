@@ -19,19 +19,19 @@ $search_ByType  = isset($_GET['type']) ? trim($_GET['type']) : '';
 $books = [];
 
 if (!empty($search_ByTitle) && !empty($search_ByType)) {
-    $stmt = $pdo->prepare("SELECT * FROM books WHERE title LIKE ? AND type LIKE ?");
+    $stmt = $pdo->prepare("SELECT books.*, users.phone AS user_phone FROM books JOIN users ON books.user_id = users.id WHERE books.title LIKE ? AND books.type LIKE ?");
     $stmt->execute(["$search_ByTitle", "$search_ByType"]);
     $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } 
 
 elseif (!empty($search_ByTitle)) {
-    $stmt = $pdo->prepare("SELECT * FROM books WHERE title LIKE ?");
+    $stmt = $pdo->prepare("SELECT books.*, users.phone AS user_phone FROM books JOIN users ON books.user_id = users.id WHERE books.title LIKE ?");
     $stmt->execute(["$search_ByTitle"]);
     $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } 
 
 elseif (!empty($search_ByType)) {
-    $stmt = $pdo->prepare("SELECT * FROM books WHERE type LIKE ?");
+    $stmt = $pdo->prepare("SELECT books.*, users.phone AS user_phone FROM books JOIN users ON books.user_id = users.id WHERE books.type LIKE ?");
     $stmt->execute(["$search_ByType"]);
     $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } 
@@ -49,21 +49,15 @@ else {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body{margin-top: 30px;}
-
         input{margin-top: 30px;}
-
         .main-card {margin-top: 30px;}
-
         .card{
             max-width: 500px;
             margin: 0 auto;
             margin-bottom: 15px;
         }
-
         .card-title{margin-bottom: 10px;}
-
         .card-text{margin-bottom: 10px;}
-
         img{
             width: 100px;
             height: 130px; 
@@ -71,15 +65,14 @@ else {
             border-radius: 5px; 
             margin-bottom: 15px;
         }
-
     </style>
-
 </head>
 <body class="container">
 
     <h2 class="search"><center> البحث عن الكتب </center></h2>
 
-    <form method="GET" action="/search" class="row g-3">
+    <form method="GET" action="" class="row g-3">
+
         <!-- By name -->
         <div class="col-md-6">
             <input type="text" name="title" value="<?php echo htmlspecialchars($search_ByTitle); ?>" class="form-control" placeholder="اسم الكتاب ...">
@@ -112,6 +105,39 @@ else {
                                 <p class="card-text"> الوضع الحالي : <?php echo htmlspecialchars($book['state']); ?></p>
                                 <p class="card-text">النوع: <?php echo htmlspecialchars($book['type']); ?></p>
                                 <p class="card-text">الحالة: <?php echo htmlspecialchars($book['status']); ?></p>
+
+                                <?php 
+                                    $currentState = trim($book['state'] ?? '');
+                                    $currentStatus = trim($book['status'] ?? '');
+                                    
+                                    $isAvailable = ($currentState == 'متاح' || strtolower($currentState) == 'available' || $currentStatus == 'متاح' || strtolower($currentStatus) == 'available');
+                                ?>
+
+                                <?php if ($isAvailable): ?>
+                                    
+                                    <?php 
+                                        $isRequested = isset($_GET['request_book_id']) && $_GET['request_book_id'] == $book['id'];
+                                    ?>
+
+                                    <?php if ($isRequested): ?>
+                                        <p style="font-weight: bold; color: #198754; margin-top: 10px;">
+                                            رقم تليفون صاحب الكتاب: <?php echo htmlspecialchars($book['user_phone'] ?? 'غير متوفر'); ?>
+                                        </p>
+                                    <?php else: ?>
+                                        <form method="GET" action="">
+                                            <input type="hidden" name="title" value="<?php echo htmlspecialchars($search_ByTitle); ?>">
+                                            <input type="hidden" name="type" value="<?php echo htmlspecialchars($search_ByType); ?>">
+                                            <input type="hidden" name="request_book_id" value="<?php echo $book['id']; ?>">
+                                            
+                                            <button type="submit" class="btn btn-success btn-sm mb-2">
+                                                اطلب الكتاب الآن
+                                            </button>
+                                        </form>
+                                    <?php endif; ?>
+
+                                <?php else: ?>
+                                    <p class="text-danger">هذا الكتاب غير متاح حالياً</p>
+                                <?php endif; ?>
 
                                 </center>
                             </div>

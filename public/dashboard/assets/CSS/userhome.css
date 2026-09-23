@@ -1,0 +1,32 @@
+
+.user-home-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.welcome-message {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+
+.links-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+
+.nav-link {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
