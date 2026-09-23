@@ -7,110 +7,142 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Document</title>
     <style>
+        :root {
+            --cream: #EEE4DA;
+            --cream-light: #F8F2EC;
+            --sand: #D8C4AC;
+            --burgundy: #4D0E13;
+            --dark-burgundy: #3A080C;
+            --text: #3E2A2B;
+            --muted: #806D6D;
+            --border: #DED1C7;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
         .main {
-            width: 550px;
-            margin: 3rem auto;
-            padding: 0 1rem;
+            width: min(92%, 650px);
+            margin: 45px auto;
             direction: rtl;
         }
 
         .main .card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #eef2f6;
+            background: var(--cream-light);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(77, 14, 19, 0.08);
         }
 
-
         .main .alert-danger {
-            background-color: #fef2f2;
-            border: none;
-            border-right: 4px solid #ef4444;
-            color: #991b1b;
-            padding: 1rem 1.25rem;
-            margin: 1.5rem 1.5rem 0 1.5rem;
+            background: #F7DADA;
+            border: 1px solid #D9A5A5;
+            border-right: 4px solid var(--burgundy);
+            color: var(--burgundy);
+            padding: 12px 16px;
+            margin: 20px 20px 0;
             border-radius: 8px;
         }
 
         .main .alert-danger ul {
             margin: 0;
-            padding-right: 1.25rem;
+            padding-right: 20px;
         }
 
         .main .alert-danger li {
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
+            font-size: 13px;
+            margin-bottom: 4px;
         }
-
-        .main .alert-danger li:last-child {
-            margin-bottom: 0;
-        }
-
 
         .main .card-body {
-            padding: 1.75rem;
+            padding: 28px;
         }
 
         .main .form-group {
-            margin-bottom: 1.25rem;
+            margin-bottom: 20px;
             align-items: center;
         }
 
         .main .form-label {
             font-weight: 600;
-            color: #374151;
-            font-size: 0.95rem;
-            margin-bottom: 0;
+            color: var(--burgundy);
+            font-size: 14px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
         }
 
-
         .main .form-control {
-            border: 1.5px solid #e5e7eb;
+            width: 100%;
+            border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 0.65rem 1rem;
-            font-size: 0.95rem;
-            color: #1f2937;
-            transition: all 0.2s ease-in-out;
+            padding: 10px 12px;
+            font-size: 14px;
+            color: var(--text);
+            background: var(--white);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .main .form-control:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            border-color: var(--burgundy);
+            box-shadow: 0 0 0 3px rgba(77, 14, 19, 0.12);
             outline: none;
         }
 
         .main .form-control[type="file"] {
-            padding: 0.5rem;
-            background-color: #f9fafb;
+            padding: 8px;
+            background: var(--cream-light);
         }
 
-
         .main .border-top {
-            border-top: 1px solid #f3f4f6 !important;
-            background-color: #fafafa;
+            border-top: 1px solid var(--border) !important;
+            background: var(--cream);
         }
 
         .main .border-top .card-body {
-            padding: 1rem 1.75rem;
+            padding: 16px 28px;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
         }
 
         .main .btn-primary {
-            background-color: #3b82f6;
-            border-color: #3b82f6;
-            padding: 0.6rem 2rem;
+            background-color: var(--burgundy);
+            border-color: var(--burgundy);
+            padding: 10px 34px;
+            color: var(--white);
             font-weight: 600;
             border-radius: 8px;
             transition: background-color 0.2s ease;
         }
 
         .main .btn-primary:hover {
-            background-color: #2563eb;
-            border-color: #2563eb;
+            background-color: var(--dark-burgundy);
+            border-color: var(--dark-burgundy);
+        }
+
+        @media (max-width: 576px) {
+            .main {
+                width: 94%;
+                margin: 25px auto;
+            }
+
+            .main .card-body {
+                padding: 20px;
+            }
+
+            .main .border-top .card-body {
+                padding: 14px 20px;
+            }
         }
     </style>
 </head>

@@ -1,0 +1,109 @@
+    :root {
+        --cream: #EEE4DA;
+        --cream-light: #F8F2EC;
+        --dusty-pink: #C8A49F;
+        --burgundy: #4D0E13;
+        --dark-burgundy: #3A080C;
+        --text: #3E2A2B;
+        --muted: #806D6D;
+        --border: #DED1C7;
+        --white: #FFFFFF;
+    }
+
+    .profile-page {
+        min-height: 100vh;
+        padding: 35px 16px;
+        direction: rtl;
+        background: var(--cream);
+        color: var(--text);
+    }
+
+    .profile-card {
+        width: min(100%, 600px);
+        margin: 0 auto;
+        overflow: hidden;
+        background: var(--cream-light);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 5px 18px rgba(77, 14, 19, 0.08);
+    }
+
+    .profile-content {
+        padding: 32px;
+        text-align: center;
+    }
+
+    .profile-image {
+        display: block;
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 20px;
+        object-fit: cover;
+        border: 4px solid var(--dusty-pink);
+        border-radius: 50%;
+    }
+
+    .profile-empty-image {
+        margin-bottom: 20px;
+        color: var(--muted);
+    }
+
+    .profile-card h3 {
+        margin: 0;
+        color: var(--burgundy);
+        font-size: 25px;
+    }
+
+    .profile-card hr {
+        margin: 20px 0;
+        border: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .profile-details {
+        text-align: right;
+        color: var(--muted);
+        line-height: 1.8;
+    }
+
+    .profile-details p {
+        margin: 0 0 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(222, 209, 199, 0.7);
+    }
+
+    .profile-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+    }
+
+    .profile-actions .profile-button {
+        min-width: 130px;
+        padding: 10px 16px;
+        border: 0;
+        border-radius: 8px;
+        color: var(--white);
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .profile-actions .profile-edit {
+        background: var(--burgundy);
+    }
+
+    .profile-actions .profile-delete {
+        background: var(--dark-burgundy);
+    }
+
+    @media (max-width: 520px) {
+        .profile-content {
+            padding: 24px 18px;
+        }
+
+        .profile-actions .profile-button {
+            width: 100%;
+        }
+    }

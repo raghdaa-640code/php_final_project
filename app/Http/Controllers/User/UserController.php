@@ -34,7 +34,7 @@ class UserController extends Controller
             }
 
         $user->update($data);
-        return redirect()->route('profile',$user->id)->with('message','data updated successfly');
+        return redirect()->route('user.profile', $user->id)->with('message','data updated successfly');
         
     }
 }

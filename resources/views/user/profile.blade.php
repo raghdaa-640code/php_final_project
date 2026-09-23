@@ -1,51 +1,45 @@
 @extends('layouts.app')
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الملف الشخصي</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        .profile-card {
-            max-width: 600px;
-            margin: 50px auto;
-            border-radius: 15px;
-        }
-
-        .profile-image {
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body class="bg-light">
+<link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/profile.css') }}">
+<link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/show.css') }}">
+@section('content')
 
 <?php  
 use Illuminate\Support\Facades\Auth;
 $user = Auth::user(); ?>
 
-<div class="container">
-    <div class="card profile-card shadow">
-        <div class="card-body text-center">
+<header class="books-navbar">
+    <a href="{{ route('showbooks') }}" class="logo">
+        <img src="{{ asset('storage/images/final.png') }}" alt="رحلة كتاب">
+    </a>
+
+    <nav class="nav-links">
+        <a href="{{ url('/') }}">الرئيسية</a>
+        <a href="{{ route('user.profile', $user->id) }}" class="active">حسابي</a>
+        <a href="{{ route('showbooks') }}">الكتب المتاحة</a>
+        <a href="{{ route('showmybooks', ['id' => $user->id]) }}">كتبي</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="{{ route('auth.logout') }}" class="login-btn">تسجيل الخروج</a>
+    </div>
+</header>
+
+<div class="profile-page">
+    <div class="profile-card">
+        <div class="profile-content">
 
             @if($user->image)
                 <img src="{{ asset('storage/' . $user->image) }}"
-                     class="profile-image mb-3"
+                     class="profile-image"
                      alt="صورة المستخدم">
             @else
-                <div class="mb-3">لا توجد صورة</div>
+                <div class="profile-empty-image">لا توجد صورة</div>
             @endif
 
             <h3>{{ $user->name }}</h3>
             <hr>
 
-            <div class="text-end">
+            <div class="profile-details">
                 <p>البريد الإلكتروني:{{ $user->email }}</p>
                 <p>رقم الهاتف: {{ $user->phone }}</p>
                 <p>الموقع: {{ $user->location }}</p>
@@ -55,16 +49,16 @@ $user = Auth::user(); ?>
                 </p>
             </div>
 
-            <a href="{{ route('user.editprofile' , $user->id) }}" class="btn btn-primary mt-3">
-                تعديل البيانات
-            </a>
-            <a href="{{ route('user.deleteuser', $user->id) }}" class="btn btn-danger mt-3">
-                حذف الحساب
-            </a>
+            <div class="profile-actions">
+                <a href="{{ route('user.editprofile' , $user->id) }}" class="profile-button profile-edit">
+                    تعديل البيانات
+                </a>
+                <a href="{{ route('user.deleteuser', $user->id) }}" class="profile-button profile-delete">
+                    حذف الحساب
+                </a>
+            </div>
 
         </div>
     </div>
 </div>
-
-</body>
-</html>
+@endsection

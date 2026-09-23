@@ -1,55 +1,90 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    body{
-        box-sizing:border-box;
-    }
-    .container{
-        display:flex;
-        flex-wrap:wrap;
-        text-align:center;
-        justify-content:space-around;
-        align-items:center;
-        gap:20px;
-    }
 
-    .card{
-        width:250px;
-        height:365px;
-        display:flex;
-        text-align:center;
-        justify-content:space-around;
-        flex-direction:column;
-        align-items:center;
-        gap:7px;
-        border: 1px solid black;
-        border-radius:20px;
-    }
-    .card p , h3{
-        margin:0;
-    }
-    img{
-        width: 150px;
-        height:200px;
-        margin:2px;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/show.css') }}">
 
-<div class="container">
-    @foreach ($otherbooks as $book)
-        <div class="card">
-            <div class="img"><img src="{{asset('storage/'.$book->image)}}" alt="{{$book->title}}"></div>
-            <h3>{{$book->title}}</h3>
-            <p>{{$book->user->name}}</p>
-            <p>{{$book->type}}</p>
-            <p>{{$book->status}}</p>
-            <p>{{$book->user->location}}</p>
-            <p class='myphone' hidden>{{$book->user->phone}}</p>
+<div class="books-page">
+
+    <header class="books-navbar">
+
+        <a href="#" class="logo">
+            <img src="{{asset('storage/images/final.png')}}" alt="رحلة كتاب">
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="{{ url('/') }}" class="active">
+                الرئيسية
+            </a>
+
+            <a href="#">
+                من نحن
+            </a>
+
+            <a href="#">
+                تواصل معنا
+            </a>
+
+            <a href="#">
+                مراجعات القراء
+            </a>
+
+            <a href="#">
+                الكتب المتاحة
+            </a>
+
+            <a href="{{ route('user.profile', ['id' => auth()->id()]) }}">
+                حسابي
+            </a>
+
+            <a href="{{ route('showmybooks', ['id' => auth()->id()]) }}">
+                كتبي
+            </a>
+
+        </nav>
+
+
+        <div class="auth-buttons">
+            <a href="{{ route('auth.logout') }}" class="login-btn">
+                تسجيل الخروج
+            </a>
         </div>
-        <button type="button" class="btn btn-success" onclick="showphone(this)">
-        اطلب الكتاب
-        </button>
-        @endforeach
+
+    </header>
+
+    <section class="books-header">
+
+        <h1>
+            الكتب المتاحة
+        </h1>
+
+        <p>
+            اكتشف الكتب المتاحة وابدأ رحلة جديدة مع كتاب تحبه
+        </p>
+
+    </section>
+
+<div class="books-container">
+    @foreach ($otherbooks as $book)
+        <div class="book-item">
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="{{ asset('storage/' . $book->image) }}" alt="{{ $book->title }}">
+                </div>
+                <h3>{{ $book->title }}</h3>
+                <p class="book-info">صاحب الكتاب: {{ $book->user->name }}</p>
+                <p class="book-info">النوع: {{ $book->type }}</p>
+                <p class="book-info">الحالة: {{ $book->state }}</p>
+                <p class="book-info">المكان: {{ $book->user->location }}</p>
+                <p class="myphone" hidden>{{ $book->user->phone }}</p>
+            </div>
+
+            <button type="button" class="request-btn" onclick="showphone(this)">
+                اطلب الكتاب
+            </button>
+        </div>
+    @endforeach
     </div>
 
 <script>
