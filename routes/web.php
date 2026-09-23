@@ -43,7 +43,9 @@ Route::post('/delete/{id}', function ($id) {
     return view('delete', compact('id'));
 });
 
-Route::get('/', HomeController::class);
+Route::get('/', function(){
+    return view('home');
+});
 
 Route::middleware(['auth', 'isadmin'])->prefix('/admin')->name('admin.')->group(function () {
 
