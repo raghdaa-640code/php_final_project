@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    @include('layouts.navbar') 
     <h1>hello</h1>
 </body>
 </html>
