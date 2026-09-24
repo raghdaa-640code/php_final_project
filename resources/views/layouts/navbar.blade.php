@@ -2,7 +2,7 @@
     <div class="nav-container">
 
         <a href="{{ route('home') }}" class="logo">
-            <img src="{{ asset('final.png') }}" alt="رحلة كتاب">
+            <img src="{{asset('dashboard/assets/dashboard/final.png')}}" alt="رحلة كتاب">
         </a>
 
         <nav class="nav-links">

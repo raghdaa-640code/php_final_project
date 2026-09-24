@@ -29,7 +29,7 @@
         <div class="hero-content">
 
             <img
-                src="final.png"
+                src="{{asset('dashboard/assets/dashboard/final.png')}}"
                 class="hero-logo"
                 alt="رحلة كتاب">
 
