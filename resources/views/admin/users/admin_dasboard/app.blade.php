@@ -34,12 +34,12 @@
                 الصفحة الرئيسية
             </a>
 
-            <a href="#" class="sidebar-link active" data-section="users">
+            <a href="#" class="sidebar-link" data-section="users">
                 <i class="fa-solid fa-users"></i>
                 المستخدمون
             </a>
 
-            <a href="#" class="sidebar-link active" data-section="books">
+            <a href="#" class="sidebar-link" data-section="books">
                 <i class="fa-solid fa-book"></i>
                 الكتب
             </a>
