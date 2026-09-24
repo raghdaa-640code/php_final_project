@@ -19,7 +19,6 @@ class UserRequest extends FormRequest
             'name' => ['required', 'regex:/^[\p{Arabic}a-zA-Z]{2,15}$/u'],
             'email' => ['required', 'email', 'regex:/^[a-zA-Z0-9]+@[a-zA-Z]+\.(com|eg|edu)$/', 'unique:users,email,' . $id],
             'phone' => ['nullable', 'regex:/^(010|012|011|015)[0-9]{8}$/', 'unique:users,phone,' . $id],
-            'password' => ['required'],
             'image' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
             'location' => ['nullable'],
         ];
