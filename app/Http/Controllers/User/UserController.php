@@ -45,9 +45,9 @@ class UserController extends Controller
     Auth::logout();
     $user->delete();
 
-    $request = request();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+    // $request = request();
+    // $request->session()->invalidate();
+    // $request->session()->regenerateToken();
 
     return redirect()->route('auth.register');
     }   
