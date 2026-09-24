@@ -34,21 +34,21 @@
                 الصفحة الرئيسية
             </a>
 
-            <a href="#" class="sidebar-link" data-section="users">
+            <a href="#" class="sidebar-link active" data-section="users">
                 <i class="fa-solid fa-users"></i>
                 المستخدمون
             </a>
 
-            <a href="#" class="sidebar-link" data-section="books">
+            <a href="#" class="sidebar-link active" data-section="books">
                 <i class="fa-solid fa-book"></i>
                 الكتب
             </a>
 
-            <a href="{{route('admin.reviews.index')}}">
+            <a href="{{route('resources/views/admin/reviews/index.blade.php')}}">
                 <i class="fa-solid fa-comments"></i>
                 الاراء
             </a>
-            <a href="{{route('admin.reports.index')}}">
+            <a href="{{route('resources/views/admin/reports/index.blade.php')}}">
                 <i class="fa-solid fa-flag"></i>
                 البلاغات
             </a>

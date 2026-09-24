@@ -11,23 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $books = Book::with('user')->get();
-        $users=User::get();
-        $userscount = User::count();
-        $bookscount = Book::count();
-
-        $availableBooks = Book::where('state', 'متاح')->count();
-
-        $unavailableBooks = Book::where('state', 'غير متاح')->count();
-
-        return view('admin.users.admin_dasboard.app',[
-            'books'=>$books,
-            'users'=>$users,
-            'userscount'=>$userscount,
-            'bookscount'=>$bookscount,
-            'availableBooks'=>$availableBooks,
-            'unavailableBooks'=>$unavailableBooks,
-        ]);
+        return view('admin.users.admin_dashboard.app');
     }
 
     public function create()

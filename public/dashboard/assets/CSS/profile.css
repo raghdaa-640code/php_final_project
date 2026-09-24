@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+    
     :root {
         --cream: #EEE4DA;
         --cream-light: #F8F2EC;
@@ -12,9 +12,6 @@
         --white: #FFFFFF;
     }
 
-    *{
-        font-family: 'Cairo', sans-serif;
-    }
     .profile-page {
         min-height: 100vh;
         padding: 35px 16px;

@@ -41,10 +41,9 @@ class UserController extends Controller
 
     public function deleteuser($id)
 {
-    $user = Auth::user();
+    $user = User::findOrFail($id);
     Auth::logout();
     $user->delete();
-
     return redirect()->route('auth.register');
     }   
 }

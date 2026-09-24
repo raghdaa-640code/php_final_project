@@ -2,7 +2,7 @@
     <div class="nav-container">
 
         <a href="{{ route('home') }}" class="logo">
-            <img src="{{ asset('final.png') }}" alt="رحلة كتاب">
+            <img src="{{ asset('dashboard/assets/dashboard/final.png') }}" alt="رحلة كتاب">
         </a>
 
         <nav class="nav-links">
@@ -10,10 +10,9 @@
                 الرئيسية
             </a>
 
-            <a href="#">من نحن</a>
-            <a href="#">تواصل معنا</a>
-            <a href="#">مراجعات القراء</a>
-            <a href="#">الكتب المتاحة</a>
+            <a href="{{route('report.show')}}">تواصل معنا</a>
+            <a href="{{route('reviews.index')}}">مراجعات القراء</a>
+            <a href="{{route('showbooks')}}">الكتب المتاحة</a>
 
             {{-- لو المستخدم مسجل دخول، بنتحقق من الـ role --}}
             @auth

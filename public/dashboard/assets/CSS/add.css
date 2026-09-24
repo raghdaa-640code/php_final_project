@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
-
-:root {
+ @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+ 
+ :root {
      --cream: #EEE4DA;
      --cream-light: #F8F2EC;
      --burgundy: #4D0E13;
@@ -19,7 +19,7 @@
      margin: 0;
      background: var(--cream);
      color: var(--text);
-     font-family: 'Cairo', sans-serif;
+     font-family: Tahoma, Arial, sans-serif;
  }
 
  .form-container {
