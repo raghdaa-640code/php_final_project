@@ -39,11 +39,16 @@ class UserController extends Controller
         
     }
 
-    public function deleteuser($id)
-{
-    $user = User::findOrFail($id);
+    public function deleteuser()
+{   
+    $user = Auth::user();
     Auth::logout();
     $user->delete();
+
+    $request = request();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
     return redirect()->route('auth.register');
     }   
 }
@@ -60,4 +65,3 @@ class UserController extends Controller
 //     }
 // }
 
-?>
