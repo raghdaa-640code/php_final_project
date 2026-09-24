@@ -229,21 +229,20 @@
 <body>
 <header class="navbar">
     <a href="{{ route('reviews.index') }}" class="logo">
-        <img src="{{ asset('images/final.png') }}" alt="رحلة كتاب">
+        <img src="{{asset('dashboard/assets/dashboard/final.png')}}" alt="رحلة كتاب">
     </a>
 
     <nav class="nav-links">
-        <a href="{{ route('reviews.index') }}" class="{{ request()->routeIs('reviews.index') ? 'active' : '' }}">الرئيسية</a>
-        <a href="#">من نحن</a>
-        <a href="#">تواصل معنا</a>
-        <a href="{{ route('reviews.index') }}">مراجعات القراء</a>
-        <a href="#">الكتب المتاحة</a>
+        <a href="{{route('home')}}" class="{{ request()->routeIs('home') ? 'active' : '' }}">الرئيسية</a>
+        <a href="{{route('report.show')}}">تواصل معنا</a>
+        <a href="{{route('reviews.index')}}">مراجعات القراء</a>
+        <a href="{{route('showbooks')}}">الكتب المتاحة</a>
     </nav>
 
     <div class="auth-buttons">
         @auth
-            @if(Route::has('logout'))
-                <form class="logout-form" method="POST" action="{{ route('logout') }}">
+            @if(Route::has('auth.logout'))
+                <form class="logout-form" method="POST" action="{{ route('auth.logout') }}">
                     @csrf
                     <button type="submit" class="logout-button">تسجيل الخروج</button>
                 </form>
@@ -251,9 +250,9 @@
                 <span class="logout-button">تم تسجيل الدخول</span>
             @endif
         @else
-            @if(Route::has('login'))
-                <a href="{{ route('login') }}" class="login-btn">تسجيل الدخول</a>
-                <a href="{{ route('login') }}" class="register-btn">إنشاء حساب</a>
+            @if(Route::has('auth.login'))
+                <a href="{{ route('auth.login') }}" class="login-btn">تسجيل الدخول</a>
+                <a href="{{ route('auth.login') }}" class="register-btn">إنشاء حساب</a>
             @else
                 <span class="login-btn">تسجيل الدخول</span>
             @endif

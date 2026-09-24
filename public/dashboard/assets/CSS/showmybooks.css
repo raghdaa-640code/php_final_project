@@ -1,4 +1,6 @@
-    :root {
+   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+   
+   :root {
         --cream: #EEE4DA;
         --cream-light: #F8F2EC;
         --dusty-pink: #C8A49F;

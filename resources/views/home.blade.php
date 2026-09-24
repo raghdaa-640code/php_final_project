@@ -42,12 +42,12 @@
 
             <div class="hero-buttons">
 
-                <a href="#" class="primary-btn">
+                <a href="{{route('showbooks')}}" class="primary-btn">
                     <i class="fa-solid fa-book-open"></i>
                     الكتب المتاحة
                 </a>
 
-                <a href="#" class="secondary-btn">
+                <a href="{{route('auth.login')}}" class="secondary-btn">
                     ابدأ رحلتك
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
@@ -181,7 +181,7 @@
                 وابدأ رحلة مختلفة مع كل صفحة.
             </p>
 
-            <a href="#" class="cta-btn">
+            <a href="{{route('addbook')}}" class="cta-btn">
                 اعرض كتابك الآن
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
@@ -201,7 +201,7 @@
 
             <div class="footer-brand">
 
-                <img src="final.png" alt="رحلة كتاب">
+                <img src="{{asset('dashboard/assets/dashboard/final.png')}}" alt="رحلة كتاب">
 
                 <p>
                     لأن كل كتاب يستحق أن يُقرأ من جديد.
@@ -238,16 +238,12 @@
                     الرئيسية
                 </a>
 
-                <a href="#">
+                <a href="{{route('showbooks')}}">
                     الكتب المتاحة
                 </a>
 
-                <a href="#">
+                <a href="{{route('reviews.index')}}">
                     مراجعات القراء
-                </a>
-
-                <a href="#">
-                    من نحن
                 </a>
 
             </div>
@@ -269,11 +265,11 @@
                     شروط الاستخدام
                 </a>
 
-                <a href="#">
+                <a href="{{route('report.show')}}">
                     تواصل معنا
                 </a>
 
-                <a href="#">
+                <a href="{{route('report.show')}}">
                     الأسئلة الشائعة
                 </a>
 
