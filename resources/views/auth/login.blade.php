@@ -7,11 +7,8 @@
     <title>تسجيل الدخول</title>
 
     <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/login.css') }}">
-    <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/home.css') }}">
 </head>
 <body>
-
-    {{-- @include('layouts.navbar') --}}
 
     <div class="login-card">
         <h2>تسجيل الدخول</h2>

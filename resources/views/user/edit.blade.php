@@ -171,8 +171,6 @@
 
 <body>
 
-    @include('layouts.navbar')
-    
     <div class="main">
 
         <div class="edit-card">
