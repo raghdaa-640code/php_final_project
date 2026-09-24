@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
     :root {
         --cream: #EEE4DA;
         --cream-light: #F8F2EC;
@@ -18,7 +20,7 @@
         margin: 0;
         background: var(--cream);
         color: var(--text);
-        font-family: Tahoma, Arial, sans-serif;
+        font-family: 'Cairo', sans-serif;
     }
 
     .container {
