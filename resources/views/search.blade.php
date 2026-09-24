@@ -48,23 +48,395 @@ else {
     <title>بحث الكتب</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body{margin-top: 30px;}
-        input{margin-top: 30px;}
-        .main-card {margin-top: 30px;}
-        .card{
-            max-width: 500px;
-            margin: 0 auto;
-            margin-bottom: 15px;
-        }
-        .card-title{margin-bottom: 10px;}
-        .card-text{margin-bottom: 10px;}
-        img{
-            width: 100px;
-            height: 130px; 
-            object-fit: cover; 
-            border-radius: 5px; 
-            margin-bottom: 15px;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+        :root {
+    --cream: #EEE4DA;
+    --cream-light: #F8F2EC;
+    --sand: #D8C4AC;
+    --dusty-pink: #C8A49F;
+    --burgundy: #4D0E13;
+    --dark-burgundy: #3A080C;
+    --text: #3E2A2B;
+    --muted: #806D6D;
+    --white: #FFFFFF;
+    --border: #DED1C7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+
+    background: var(--cream-light);
+    color: var(--text);
+
+    font-family: 'Cairo', sans-serif;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.search {
+    margin: 0 0 35px;
+
+    color: var(--burgundy);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.search center {
+    display: block;
+}
+
+/* =========================
+   SEARCH FORM
+========================= */
+
+form.row {
+    max-width: 850px;
+
+    margin: 0 auto;
+    padding: 25px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(77, 14, 19, 0.07);
+}
+
+/* Inputs */
+
+form.row input.form-control {
+    width: 100%;
+    height: 46px;
+
+    margin-top: 0;
+
+    padding: 0 15px;
+
+    background: var(--cream-light);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+form.row input.form-control:focus {
+    background: var(--white);
+
+    border-color: var(--dusty-pink);
+
+    box-shadow: 0 0 0 3px rgba(200, 164, 159, 0.18);
+}
+
+form.row input::placeholder {
+    color: var(--muted);
+}
+
+/* Search button */
+
+form.row > .btn {
+    width: 100%;
+
+    margin-top: 5px;
+
+    text-align: center;
+}
+
+form.row > .btn button {
+    min-width: 140px;
+
+    padding: 11px 28px;
+
+    background: var(--burgundy);
+    color: var(--white);
+
+    border: none;
+    border-radius: 24px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+form.row > .btn button:hover {
+    background: var(--dark-burgundy);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(77, 14, 19, 0.16);
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.main-card {
+    max-width: 1100px;
+
+    margin: 40px auto 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 22px;
+}
+
+/* =========================
+   BOOK CARD
+========================= */
+
+.main-card > .card {
+    width: 300px;
+    min-height: 410px;
+
+    margin: 0;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(77, 14, 19, 0.08);
+
+    transition: 0.25s ease;
+}
+
+.main-card > .card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 30px rgba(77, 14, 19, 0.13);
+}
+
+.main-card .card-body {
+    padding: 25px 20px;
+}
+
+/* =========================
+   BOOK IMAGE
+========================= */
+
+.main-card img {
+    width: 120px;
+    height: 160px;
+
+    object-fit: cover;
+
+    margin: 0 auto 18px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 5px 15px rgba(77, 14, 19, 0.08);
+}
+
+/* =========================
+   BOOK TITLE
+========================= */
+
+.main-card .card-title {
+    margin: 0 0 18px;
+
+    color: var(--burgundy);
+
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   BOOK DETAILS
+========================= */
+
+.main-card .card-text {
+    margin-bottom: 9px;
+
+    color: var(--text);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================
+   REQUEST BUTTON
+========================= */
+
+.main-card form:not(.row) {
+    margin-top: 16px;
+}
+
+.main-card .btn-success {
+    padding: 9px 20px;
+
+    background: var(--burgundy);
+    color: var(--white);
+
+    border: none;
+    border-radius: 22px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.main-card .btn-success:hover {
+    background: var(--dark-burgundy);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(77, 14, 19, 0.15);
+}
+
+/* =========================
+   PHONE MESSAGE
+========================= */
+
+.main-card p[style*="198754"] {
+    margin-top: 15px !important;
+    padding: 10px 12px;
+
+    background: #E9F3EC;
+
+    color: #356B47 !important;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+}
+
+/* =========================
+   UNAVAILABLE MESSAGE
+========================= */
+
+.main-card .text-danger {
+    margin-top: 15px;
+
+    padding: 9px 12px;
+
+    background: #F8E8E9;
+
+    color: #8E3038 !important;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+}
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.main-card .alert-warning {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 10px auto;
+    padding: 16px 20px;
+
+    background: var(--cream);
+
+    color: var(--burgundy);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    font-size: 14px;
+}
+
+/* =========================
+   INITIAL MESSAGE
+========================= */
+
+.main-card .text-muted {
+    width: 100%;
+
+    padding: 20px;
+
+    background: var(--white);
+
+    color: var(--muted) !important;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 30px 15px;
+    }
+
+    .search {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    form.row {
+        padding: 20px;
+    }
+
+    form.row > .btn button {
+        width: 100%;
+    }
+
+    .main-card {
+        margin-top: 30px;
+    }
+
+    .main-card > .card {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    body {
+        padding: 25px 12px;
+    }
+
+    .search {
+        font-size: 22px;
+    }
+
+    form.row {
+        padding: 16px;
+    }
+
+    .main-card > .card {
+        min-height: 390px;
+    }
+}
     </style>
 </head>
 <body class="container">
