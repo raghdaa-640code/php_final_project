@@ -2,6 +2,9 @@
 
 @import url('logout.css');
 
+
+
+
 /* =========================
    COLORS
 ========================= */
@@ -155,7 +158,7 @@ button {
 }
 
 .login-btn,
-.register-btn {
+.register-btn{
 
     padding: 9px 18px;
 
@@ -195,6 +198,7 @@ button {
     transform: translateY(-2px);
 
 }
+
 
 
 /* MOBILE BUTTON */

@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إنشاء حساب</title>
     <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/home.css') }}">
 </head>
 <body>
+
+    {{-- @include('layouts.navbar') --}}
 
     <div class="register-container">
         <h2>إنشاء حساب</h2>

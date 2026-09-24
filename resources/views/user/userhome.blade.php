@@ -1,4 +1,3 @@
-@extends('layouts.app')
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -7,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/userhome.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/logout.css') }}">
     <title>صفحة المستخدم</title>
+    
 </head>
 <body>
+
+    @include('layouts.navbar')
 
     <div class="user-home-container">
 

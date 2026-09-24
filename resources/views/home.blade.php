@@ -7,19 +7,23 @@
 
     <title>رحلة كتاب | تبادل الكتب</title>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/CSS/home.css') }}">
+
 </head>
 
 <body>
 
     <!-- ================= NAVBAR ================= -->
+<<<<<<< HEAD
+    @include('layouts.navbar')
+
+=======
 
     @include('layouts.navbar')
 
 
+>>>>>>> login-signup
     <!-- ================= HERO ================= -->
 
     <section class="hero">
@@ -28,10 +32,14 @@
 
         <div class="hero-content">
 
+<<<<<<< HEAD
+            <img src="final.png" class="hero-logo" alt="رحلة كتاب">
+=======
             <img
                 src="{{asset('dashboard/assets/dashboard/final.png')}}"
                 class="hero-logo"
                 alt="رحلة كتاب">
+>>>>>>> login-signup
 
             <h1>
                 كتب تنتقل بين الأيدي ..
@@ -61,6 +69,7 @@
 
     </section>
 
+    <!-- ================= WHY SECTION ================= -->
 
 
     <section class="why-section">
@@ -143,7 +152,6 @@
 
             </div>
 
-
             <!-- CARD 4 -->
 
             <div class="feature-card">
@@ -167,6 +175,7 @@
 
     </section>
 
+    <!-- ================= CTA SECTION ================= -->
 
 
 
@@ -192,6 +201,7 @@
 
     </section>
 
+    <!-- ================= FOOTER ================= -->
 
     <footer class="footer">
 
@@ -202,9 +212,7 @@
 
             <div class="footer-brand">
 
-                <img
-                    src="final.png"
-                    alt="رحلة كتاب">
+                <img src="final.png" alt="رحلة كتاب">
 
                 <p>
                     لأن كل كتاب يستحق أن يُقرأ من جديد.

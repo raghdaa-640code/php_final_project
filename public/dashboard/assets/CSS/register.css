@@ -41,7 +41,7 @@ body {
 
     color: var(--text);
 
-    font-family: Arial, sans-serif;
+    font-family: "Cairo", sans-serif;
 }
 
 
@@ -60,6 +60,8 @@ body {
     border: 1px solid var(--border);
 
     border-radius: 18px;
+
+    margin: 0 auto;
 
     box-shadow:
         0 12px 35px rgba(77, 14, 19, 0.08);
@@ -135,6 +137,69 @@ body {
     font-size: 13px;
 
     transition: 0.25s;
+}
+
+.form-group input:focus {
+    border-color: var(--dusty-pink);
+
+    box-shadow:
+        0 0 0 3px rgba(200, 164, 159, 0.18);
+}
+
+.form-group input::placeholder {
+    color: #A89898;
+}
+
+.form-group input[type="file"] {
+    height: auto;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    background: var(--white);
+}
+
+
+.form-group input[type="file"]::file-selector-button {
+    margin-left: 10px;
+
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: var(--sand);
+
+    color: var(--burgundy);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: var(--dusty-pink);
+}
+
+.error-text {
+    display: block;
+
+    margin-top: 6px;
+
+    padding-right: 3px;
+
+    color: #9A3038;
+
+    font-size: 11px;
+
+    line-height: 1.6;
 }
 
 
