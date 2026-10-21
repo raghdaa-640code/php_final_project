@@ -47,7 +47,7 @@
                     الكتب المتاحة
                 </a>
 
-                <a href="{{route('auth.login')}}" class="secondary-btn">
+                {{-- <a href="{{route('userhome')}}" class="secondary-btn"> --}}
                     ابدأ رحلتك
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>

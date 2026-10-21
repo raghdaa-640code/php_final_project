@@ -3,31 +3,29 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ReportController extends Controller
 {
-    
     public function search(Request $request)
     {
         return view('search');
     }
 
-    
     public function index()
     {
         return view('report.index');
     }
 
-    public function show($id)
+    public function show(): View
     {
-        return view('report.show', compact('id'));
+        return view('report');
     }
 
-    public function create()
+    public function report()
     {
-        return view('report.create');
+        return view('report');
     }
 
     public function store(Request $request)

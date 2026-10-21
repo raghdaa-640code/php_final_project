@@ -11,12 +11,12 @@
 
     <div class="cards-grid">
         
-        <a href="{{ route('user.showbooks') }}" class="home-card">
+        <a href="{{ route('showbooks') }}" class="home-card">
             <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
             <h3>الكتب المعروضة</h3>
         </a>
 
-        <a href="{{ route('user.showmybooks', ['id' => auth()->id()]) }}" class="home-card">
+        <a href="{{ route('showmybooks', ['id' => auth()->id()]) }}" class="home-card">
             <div class="card-icon"><i class="fa-solid fa-book"></i></div>
             <h3>الكتب التي عرضتها</h3>
         </a>
@@ -25,7 +25,7 @@
             <h3>الآراء</h3>
         </a>
 
-        <a href="" class="home-card">
+        <a href="{{ route('report') }}" class="home-card">
             <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
             <h3>الإبلاغ عن مشكلة</h3>
         </a>

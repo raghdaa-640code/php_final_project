@@ -29,7 +29,7 @@
                 لوحة التحكم
             </a>
 
-            <a href="#" >
+            <a href="{{route('home')}}" >
                 <i class="fa-solid fa-house"></i>
                 الصفحة الرئيسية
             </a>
@@ -44,11 +44,11 @@
                 الكتب
             </a>
 
-            <a href="{{route('resources/views/admin/reviews/index.blade.php')}}">
+            <a href="{{route('admin.reviews.index')}}">
                 <i class="fa-solid fa-comments"></i>
                 الاراء
             </a>
-            <a href="{{route('resources/views/admin/reports/index.blade.php')}}">
+            <a href="{{route('admin.reports.index')}}">
                 <i class="fa-solid fa-flag"></i>
                 البلاغات
             </a>
@@ -102,7 +102,7 @@
 
                 <div>
                     <span>إجمالي المستخدمين</span>
-                    <h2>{{$usersCount}}</h2>
+                    <h2>{{$userscount}}</h2>
                 </div>
 
             </div>
@@ -116,7 +116,7 @@
 
                 <div>
                     <span>إجمالي الكتب</span>
-                    <h2>{{$booksCount}}</h2>
+                    <h2>{{$bookscount}}</h2>
                 </div>
 
             </div>

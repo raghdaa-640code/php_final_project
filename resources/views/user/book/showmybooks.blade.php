@@ -13,16 +13,16 @@
 </head>
 <body>
 <header class="books-navbar">
-    <a href="{{ route('user.showbooks') }}" class="logo">
+    <a href="{{ route('showbooks') }}" class="logo">
         <img src="{{ asset('storage/images/final.png') }}" alt="رحلة كتاب">
     </a>
 
     <nav class="nav-links">
         <a href="{{ url('/') }}">الرئيسية</a>
-        <a href="{{ route('user.showbooks') }}">الكتب المتاحة</a>
+        <a href="{{ route('showbooks') }}">الكتب المتاحة</a>
         <a href="{{ route('user.profile', ['id' => auth()->id()]) }}">حسابي</a>
-        <a href="{{ route('user.showmybooks', ['id' => auth()->id()]) }}" class="active">كتبي</a>
-        <a href="{{ route('user.addbook') }}">إضافة كتاب</a>
+        <a href="{{ route('showmybooks', ['id' => auth()->id()]) }}" class="active">كتبي</a>
+        <a href="{{ route('addbook') }}">إضافة كتاب</a>
     </nav>
 
     <div class="auth-buttons">
@@ -39,7 +39,7 @@
     <div class="alert alert-info text-center">
         لم تقم بإضافة أي كتب بعد.
     </div>
-        <a href="{{ route('user.addbook') }}">إضافة الكتاب</a>
+        <a href="{{ route('addbook') }}">إضافة الكتاب</a>
 @else
     @foreach($mybooks as $book)
         <div class="col-md-4 mb-4">
@@ -55,7 +55,7 @@
 
                 <div class="card-footer bg-transparent d-flex justify-content-between">
                     
-                    <form action="{{ route('user.deletebook', $book->id) }}"
+                    <form action="{{ route('deletebook', $book->id) }}"
                           method="POST"
                           onsubmit="return confirm('هل أنت متأكد من حذف هذا الكتاب؟')">
                         @csrf
@@ -64,9 +64,9 @@
                             حذف
                         </button>
                     </form>
-                    <a href="{{ route('user.editbook', $book->id) }}"
+                    <a href="{{ route('editbook', $book->id) }}"
                        class="btn  btn-warning">تعديل</a>
-                    <a href="{{ route('user.accept', $book->id) }}" class="btn btn-secondary">
+                    <a href="{{ route('accept', $book->id) }}" class="btn btn-secondary">
                         تم طلب الكتاب
                     </a>
                 </div>

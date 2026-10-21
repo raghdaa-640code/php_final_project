@@ -10,7 +10,7 @@
                 الرئيسية
             </a>
 
-            <a href="{{route('report.show')}}">تواصل معنا</a>
+            <a href="{{route('admin.reports.index')}}">تواصل معنا</a>
             <a href="{{route('reviews.index')}}">مراجعات القراء</a>
             <a href="{{route('showbooks')}}">الكتب المتاحة</a>
 
@@ -20,7 +20,7 @@
                     <a href="{{ route('admin.users.dashboard') }}" class="{{ request()->routeIs('admin.users.dashboard') ? 'active' : '' }}">
                         لوحة التحكم
                     </a>
-                    <a href="#">البلاغات</a>
+                    <a href="{{ route('admin.reports.index') }}">البلاغات</a>
                 @else
                     <a href="{{ route('user.userhome') }}" class="{{ request()->routeIs('user.userhome') ? 'active' : '' }}">
                         الصفحة الشخصية

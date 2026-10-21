@@ -18,19 +18,17 @@
                 الرئيسية
             </a>
 
-            <a href="#">
-                من نحن
-            </a>
+            
 
-            <a href="#">
+            <a href="{{ route('report.show') }}">
                 تواصل معنا
             </a>
 
-            <a href="#">
+            <a href="{{ route('reviews.index') }}">
                 مراجعات القراء
             </a>
 
-            <a href="#">
+            <a href="{{ route('showbooks') }}">
                 الكتب المتاحة
             </a>
 
@@ -38,11 +36,11 @@
                 حسابي
             </a>
 
-            <a href="{{ route('user.showmybooks', ['id' => auth()->id()]) }}">
+            <a href="{{ route('showmybooks', ['id' => auth()->id()]) }}">
                 كتبي
             </a>
 
-            <a href="{{ route('user.addbook') }}">
+            <a href="{{ route('addbook') }}">
                 إضافة كتاب
             </a>
 
