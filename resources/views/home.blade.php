@@ -47,10 +47,17 @@
                     الكتب المتاحة
                 </a>
 
-                {{-- <a href="{{route('userhome')}}" class="secondary-btn"> --}}
-                    ابدأ رحلتك
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
+                @auth
+                    <a href="{{route('user.userhome')}}" class="secondary-btn">
+                        ابدأ رحلتك
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                @else
+                    <a href="{{route('auth.login')}}" class="secondary-btn">
+                        ابدأ رحلتك
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                @endauth
 
             </div>
 

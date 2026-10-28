@@ -24,14 +24,19 @@
 
         <nav>
 
+            <a href="{{ route('admin.home') }}">
+                <i class="fa-solid fa-house"></i>
+                الرئيسية
+            </a>
+
             <a href="#" class="sidebar-link active" data-section="dashboard">
                 <i class="fa-solid fa-table-columns"></i>
                 لوحة التحكم
             </a>
 
             <a href="{{route('home')}}" >
-                <i class="fa-solid fa-house"></i>
-                الصفحة الرئيسية
+                <i class="fa-solid fa-globe"></i>
+                الموقع العام
             </a>
 
             <a href="#" class="sidebar-link active" data-section="users">
@@ -304,9 +309,6 @@
                     </div>
 
                 </div>
-
-            </div>
-
 
             </div>
 

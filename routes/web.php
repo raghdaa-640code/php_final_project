@@ -23,9 +23,9 @@ Route::controller(UserReportController::class)->group(function () {
     Route::get('/search', 'search')->name('search');
     Route::get('/show', 'show')->name('report.show');
     Route::get('/report', 'report')->name('report');
-    Route::post('/report', 'submitReport')->name('report.submit');
 
     Route::middleware(['auth'])->group(function(){
+        Route::post('/report', 'submitReport')->name('report.submit');
         Route::get('/edit/{id}', 'edit')->name('report.edit');
         Route::post('/edit/{id}', 'update')->name('report.update');
         Route::get('/delete/{id}', 'destroy')->name('report.destroy');
@@ -59,6 +59,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('/admin')->name('admin.')->group(
 
     
     Route::controller(AdminBookController::class)->group(function () {
+        Route::get('/home', 'home')->name('home');
         Route::get('/dashboard', 'index')->name('dashboard');
         Route::delete('/books/{id}', 'destroy')->name('books.destroy')->where(['id' => '[0-9]+']);
     });

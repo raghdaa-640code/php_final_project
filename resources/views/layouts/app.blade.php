@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'المكتبة')</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
         body {
@@ -228,7 +229,7 @@
 </head>
 <body>
 <header class="navbar">
-    <a href="{{ route('reviews.index') }}" class="logo">
+    <a href="{{ route('home') }}" class="logo">
         <img src="{{asset('dashboard/assets/dashboard/final.png')}}" alt="رحلة كتاب">
     </a>
 
@@ -252,7 +253,7 @@
         @else
             @if(Route::has('auth.login'))
                 <a href="{{ route('auth.login') }}" class="login-btn">تسجيل الدخول</a>
-                <a href="{{ route('auth.login') }}" class="register-btn">إنشاء حساب</a>
+                <a href="{{ route('auth.register') }}" class="register-btn">إنشاء حساب</a>
             @else
                 <span class="login-btn">تسجيل الدخول</span>
             @endif

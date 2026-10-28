@@ -14,7 +14,7 @@
 <body>
 <header class="books-navbar">
     <a href="{{ route('showbooks') }}" class="logo">
-        <img src="{{ asset('storage/images/final.png') }}" alt="رحلة كتاب">
+        <img src="{{ asset('dashboard/assets/dashboard/final.png') }}" alt="رحلة كتاب">
     </a>
 
     <nav class="nav-links">
@@ -26,7 +26,10 @@
     </nav>
 
     <div class="auth-buttons">
-        <a href="{{ route('auth.logout') }}" class="login-btn">تسجيل الخروج</a>
+        <form action="{{ route('auth.logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="login-btn" style="border:none; cursor:pointer;">تسجيل الخروج</button>
+        </form>
     </div>
 </header>
 

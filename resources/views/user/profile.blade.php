@@ -11,7 +11,7 @@ $user = Auth::user(); ?>
 
 <header class="books-navbar">
     <a href="{{ route('showbooks') }}" class="logo">
-        <img src="{{ asset('storage/images/final.png') }}" alt="رحلة كتاب">
+        <img src="{{ asset('dashboard/assets/dashboard/final.png') }}" alt="رحلة كتاب">
     </a>
 
     <nav class="nav-links">
