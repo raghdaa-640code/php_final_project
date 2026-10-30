@@ -24,14 +24,19 @@
 
         <nav>
 
+            <a href="{{ route('admin.home') }}">
+                <i class="fa-solid fa-house"></i>
+                الرئيسية
+            </a>
+
             <a href="#" class="sidebar-link active" data-section="dashboard">
                 <i class="fa-solid fa-table-columns"></i>
                 لوحة التحكم
             </a>
 
-            <a href="#" >
-                <i class="fa-solid fa-house"></i>
-                الصفحة الرئيسية
+            <a href="{{route('home')}}" >
+                <i class="fa-solid fa-globe"></i>
+                الموقع العام
             </a>
 
             <a href="#" class="sidebar-link active" data-section="users">
@@ -44,11 +49,11 @@
                 الكتب
             </a>
 
-            <a href="{{route('resources/views/admin/reviews/index.blade.php')}}">
+            <a href="{{route('admin.reviews.index')}}">
                 <i class="fa-solid fa-comments"></i>
                 الاراء
             </a>
-            <a href="{{route('resources/views/admin/reports/index.blade.php')}}">
+            <a href="{{route('admin.reports.index')}}">
                 <i class="fa-solid fa-flag"></i>
                 البلاغات
             </a>
@@ -102,7 +107,7 @@
 
                 <div>
                     <span>إجمالي المستخدمين</span>
-                    <h2>{{$usersCount}}</h2>
+                    <h2>{{$userscount}}</h2>
                 </div>
 
             </div>
@@ -116,7 +121,7 @@
 
                 <div>
                     <span>إجمالي الكتب</span>
-                    <h2>{{$booksCount}}</h2>
+                    <h2>{{$bookscount}}</h2>
                 </div>
 
             </div>
@@ -304,9 +309,6 @@
                     </div>
 
                 </div>
-
-            </div>
-
 
             </div>
 

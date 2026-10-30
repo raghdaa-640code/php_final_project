@@ -8,7 +8,7 @@
     <header class="books-navbar">
 
         <a href="#" class="logo">
-            <img src="{{asset('storage/images/final.png')}}" alt="رحلة كتاب">
+            <img src="{{asset('dashboard/assets/dashboard/final.png')}}" alt="رحلة كتاب">
         </a>
 
 
@@ -18,19 +18,17 @@
                 الرئيسية
             </a>
 
-            <a href="#">
-                من نحن
-            </a>
+            
 
-            <a href="#">
+            <a href="{{ route('report.show') }}">
                 تواصل معنا
             </a>
 
-            <a href="#">
+            <a href="{{ route('reviews.index') }}">
                 مراجعات القراء
             </a>
 
-            <a href="#">
+            <a href="{{ route('showbooks') }}">
                 الكتب المتاحة
             </a>
 
@@ -38,11 +36,11 @@
                 حسابي
             </a>
 
-            <a href="{{ route('user.showmybooks', ['id' => auth()->id()]) }}">
+            <a href="{{ route('showmybooks', ['id' => auth()->id()]) }}">
                 كتبي
             </a>
 
-            <a href="{{ route('user.addbook') }}">
+            <a href="{{ route('addbook') }}">
                 إضافة كتاب
             </a>
 
@@ -50,9 +48,10 @@
 
 
         <div class="auth-buttons">
-            <a href="{{ route('auth.logout') }}" class="login-btn">
-                تسجيل الخروج
-            </a>
+            <form action="{{ route('auth.logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="login-btn" style="border:none; cursor:pointer;">تسجيل الخروج</button>
+            </form>
         </div>
 
     </header>

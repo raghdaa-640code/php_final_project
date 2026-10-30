@@ -40,7 +40,7 @@ class BookController
         // $bookdata['image']='images/'.$name.$bookdata->id .".".  $phextension; 
         $bookdata['user_id']=$user->id;         // to add user id with book data
         Book::create($bookdata);
-            return redirect()->route('user.showmybooks',$user->id)->with('message','book added');
+            return redirect()->route('showmybooks',$user->id)->with('message','book added');
 
         }
 
@@ -63,7 +63,7 @@ class BookController
             }
 
         $book->update($data);
-        return redirect()->route('user.showmybooks',$userid)->with('message','data updated successfly');
+        return redirect()->route('showmybooks',$userid)->with('message','data updated successfly');
         
     }
 

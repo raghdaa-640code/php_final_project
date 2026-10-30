@@ -277,8 +277,7 @@
 @section('content')
     <div class="card">
         <h1>إدارة الآراء</h1>
-        <p class="muted">هذه الصفحة خاصة بالمسؤول. يستطيع المسؤول إضافة رأي أو حذف رأي واحد أو حذف كل الآراء.</p>
-
+        
         <form method="POST" action="{{ route('admin.reviews.store') }}">
             @csrf
             <label for="review">إضافة رأي</label>

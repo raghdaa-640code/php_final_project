@@ -3,50 +3,95 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\report;
+use App\Models\book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class ReportController extends Controller
 {
-    
     public function search(Request $request)
     {
-        return view('search');
+        $title = $request->get('title', '');
+        $type  = $request->get('type', '');
+
+        $books = collect();
+
+        if (!empty($title) || !empty($type)) {
+            $query = book::with('user');
+
+            if (!empty($title)) {
+                $query->where('title', 'like', '%' . $title . '%');
+            }
+
+            if (!empty($type)) {
+                $query->where('type', 'like', '%' . $type . '%');
+            }
+
+            $books = $query->get();
+        }
+
+        return view('search', compact('books', 'title', 'type'));
     }
 
-    
-    public function index()
+    public function show(): View
     {
-        return view('report.index');
+        $myReports = collect();
+
+        if (Auth::check()) {
+            $myReports = report::where('user_id', Auth::id())->latest()->get();
+        }
+
+        return view('report', compact('myReports'));
     }
 
-    public function show($id)
+    public function report()
     {
-        return view('report.show', compact('id'));
+        $myReports = collect();
+
+        if (Auth::check()) {
+            $myReports = report::where('user_id', Auth::id())->latest()->get();
+        }
+
+        return view('report', compact('myReports'));
     }
 
-    public function create()
+    public function submitReport(Request $request)
     {
-        return view('report.create');
-    }
+        $request->validate([
+            'report' => 'required|string|min:10|max:2000',
+        ], [
+            'report.required' => 'يرجى كتابة محتوى البلاغ.',
+            'report.min'      => 'البلاغ يجب أن يكون 10 أحرف على الأقل.',
+        ]);
 
-    public function store(Request $request)
-    {
-        return redirect()->back()->with('success', 'تم إرسال الشكوى بنجاح');
+        report::create([
+            'report'  => $request->report,
+            'user_id' => Auth::id(),
+        ]);
+
+        return redirect()->route('report.show')
+            ->with('success', 'تم إرسال البلاغ بنجاح! سيتم الرد عليك قريباً.');
     }
 
     public function edit($id)
     {
-        return view('report.edit', compact('id'));
+        $report = report::findOrFail($id);
+        return view('report.edit', compact('report'));
     }
 
     public function update(Request $request, $id)
     {
-        return redirect()->route('reports.show', $id)->with('success', 'تم تعديل الشكوى');
+        $report = report::findOrFail($id);
+        $report->update(['report' => $request->report]);
+        return redirect()->route('report.show')->with('success', 'تم تعديل البلاغ بنجاح.');
     }
 
     public function destroy($id)
     {
-        return redirect()->route('reports.index')->with('success', 'تم حذف الشكوى');
+        $report = report::findOrFail($id);
+        $report->delete();
+        return redirect()->route('report.show')->with('success', 'تم حذف البلاغ بنجاح.');
     }
 }

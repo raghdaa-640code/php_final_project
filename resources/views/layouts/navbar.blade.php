@@ -10,17 +10,21 @@
                 الرئيسية
             </a>
 
-            <a href="{{route('report.show')}}">تواصل معنا</a>
-            <a href="{{route('reviews.index')}}">مراجعات القراء</a>
-            <a href="{{route('showbooks')}}">الكتب المتاحة</a>
+            <a href="{{ route('report.show') }}">تواصل معنا</a>
+            <a href="{{ route('reviews.index') }}">مراجعات القراء</a>
+            <a href="{{ route('showbooks') }}">الكتب المتاحة</a>
+            <a href="{{ route('search') }}">البحث</a>
 
             {{-- لو المستخدم مسجل دخول، بنتحقق من الـ role --}}
             @auth
                 @if(auth()->user()->role === 'admin')
+                    <a href="{{ route('admin.home') }}" class="{{ request()->routeIs('admin.home') ? 'active' : '' }}">
+                        الرئيسية الإدارية
+                    </a>
                     <a href="{{ route('admin.users.dashboard') }}" class="{{ request()->routeIs('admin.users.dashboard') ? 'active' : '' }}">
                         لوحة التحكم
                     </a>
-                    <a href="#">البلاغات</a>
+                    <a href="{{ route('admin.reports.index') }}">البلاغات</a>
                 @else
                     <a href="{{ route('user.userhome') }}" class="{{ request()->routeIs('user.userhome') ? 'active' : '' }}">
                         الصفحة الشخصية
@@ -31,35 +35,19 @@
 
         <div class="nav-actions">
             @guest
-                {{-- @if(!Route::is('auth.login') || !Route::is('auth.regester') ) --}}
-                    <a href="{{ route('auth.login') }}" class="login-btn">
-                         تسجيل الدخول
-                    </a>
-
-                    <a href="{{ route('auth.register') }}" class="register-btn">
-                         إنشاء حساب
-                    </a>
-                {{-- @endif --}}
+                <a href="{{ route('auth.login') }}" class="login-btn">
+                    تسجيل الدخول
+                </a>
+                <a href="{{ route('auth.register') }}" class="register-btn">
+                    إنشاء حساب
+                </a>
             @else
-                {{-- زرار تسجيل الخروج يظهر فقط إذا كان مسجل دخول ومش في (الرئيسية، اللوجن، التسجيل) --}}
-                @unless(request()->routeIs('home') || request()->routeIs('auth.login') || request()->routeIs('auth.register'))
-                    {{-- <form action="{{ route('auth.logout') }}" method="GET" style="display: inline;">
-                        @csrf
-                        <button type="submit" class="login-btn" style="border: 1px solid var(--burgundy); cursor: pointer;">
-                            تسجيل الخروج
-                        </button>
-                    </form> --}}
-
-                    <nav>
-                        @auth
-                            <a href="{{ route('auth.logout') }}" class="logout-btn">تسجيل الخروج</a>
-                        @endauth
-                    </nav>
-
-                   <div class="container">
-                        @yield('content')
-                   </div>
-                @endunless
+                <form action="{{ route('auth.logout') }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="login-btn" style="border: 1px solid var(--burgundy); cursor: pointer; background: transparent; color: var(--burgundy);">
+                        تسجيل الخروج
+                    </button>
+                </form>
             @endguest
 
             <button class="menu-btn">

@@ -22,7 +22,7 @@
         </div>
         <h2 style="text-align: center; margin-bottom: 20px; font-size: 22px;">إضافة كتاب</h2>
 
-        <form action="{{ route('user.storebook') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('storebook') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">

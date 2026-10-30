@@ -3,15 +3,31 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\Book;
 use App\Http\Requests\UserRequest;
+use App\Models\Book;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.users.admin_dashboard.app');
+        $books = Book::with('user')->get();
+        $users = User::get();
+        $userscount = User::count();
+        $bookscount = Book::count();
+
+        $availableBooks = Book::where('state', 'متاح')->count();
+
+        $unavailableBooks = Book::where('state', 'غير متاح')->count();
+
+        return view('admin.users.admin_dasboard.app', [
+            'books' => $books,
+            'users' => $users,
+            'userscount' => $userscount,
+            'bookscount' => $bookscount,
+            'availableBooks' => $availableBooks,
+            'unavailableBooks' => $unavailableBooks,
+        ]);
     }
 
     public function create()
